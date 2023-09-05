@@ -34,7 +34,7 @@ int main()
     z = getNum("z");
     c = getNum("c");
     
-    G = (tan(pow(x,4) - 6) - pow(cos(z + x * y), 3)) / (cos(4) * pow(x,3) * pow(c,2));
+    G = (tan(pow(x,4) - 6) - pow(cos(z + x * y), 3)) / (pow(cos(x),4) * pow(x,3) * pow(c,2));
     
     cout << "Answer G: " << G << "\n";
     
