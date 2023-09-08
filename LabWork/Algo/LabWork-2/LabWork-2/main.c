@@ -30,7 +30,7 @@ int main(int argc, const char * argv[])
     }
     else
     {
-        y = sqrt(2 * pow(x,2) + pow(x,4) + 1);
+        y = cbrt(2 * pow(x,2) + pow(x,4) + 1);
     }
     
     printf("Answer: %.3f\n", y);               // .3 for round num after 3 nums,
