@@ -14,6 +14,12 @@ struct SettingView: View
     @State private var isShowingAuthor = false
     @State var currentText: String = ""
     
+    @State private var isOption1Selected = false
+    @State private var isOption2Selected = false
+    @State private var isOption3Selected = false
+    // и так далее для каждого элемента списка
+
+    
 
     var body: some View
     {
@@ -21,38 +27,8 @@ struct SettingView: View
         {
             VStack
             {
-
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-                    .padding(.top, 30)
-                    .padding(.bottom, 500)
-                
-                
-                Text("Hello, world!")
-                    .background(Color.red)
-                
-                if secretMessage
-                {
-                    Text("aga)")
-                }
-                
-                Button
-                {
-                    secretMessage.toggle()
-                }
-                label:
-                {
-                    Text("hello!")
-                        .padding(4)
-                }
-                .padding(4)
-                .background(Color.gray)
-                .cornerRadius(16)
-                
-                
-                
                 //norm
+                Spacer()
                 
                 HStack
                 {
@@ -62,17 +38,33 @@ struct SettingView: View
                         .shadow(radius: 12)
                 }
                 .padding(.horizontal, 15)
+                .padding(.bottom, 12)
                 
-
-                
+               
                 Button
                 {
                     // send in right tab info text
+                    print(currentText)
                 }
                 label:
                 {
                     Text("Вивести текст")
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 45)
+                        .font(Font.callout.bold())
                 }
+                .background(Color("MainButtonBG"))
+                .foregroundColor(Color.white)
+                .cornerRadius(16)
+                
+                
+                    Toggle("Опция 1", isOn: $isOption1Selected)
+                    Toggle("Опция 2", isOn: $isOption2Selected)
+                    Toggle("Опция 3", isOn: $isOption3Selected)
+                    // Добавьте другие флажки по аналогии
+                
+                
+                
                 
             }
             .alert(isPresented: $isShowingAuthor)
@@ -81,12 +73,11 @@ struct SettingView: View
                     title: Text("Інформація"),
                     message: Text("Розробник програми студент групи КН-23-1Т Ізбаш Андрій"))
             }
-            
+        
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-
         }
         .navigationBarHidden(false)
-        .navigationTitle(Text("Лаб.Робота №1"))
+        .navigationTitle(Text("Лабораторна Робота №1"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar
         {
@@ -102,29 +93,6 @@ struct SettingView: View
             }
         }
         
-        /*
-        .navigationBarHidden(false)
-        .navigationTitle(Text("АйтемыНавигация"))
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    // действия КНОПКИ СЕЛВА
-                }) {
-                    Image(systemName: "arrow.backward")
-                }
-            }
-            
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    // действия для кнопки справа
-                }) {
-                    Text("ПрАЙТЕМ")
-                    
-                }
-            }
-        }
-        */
     }
 }
 
@@ -135,65 +103,3 @@ struct SettingView_Previews: PreviewProvider
         SettingView()
     }
 }
-
-
-/*
-
- struct ItemGridView: View
- {
-     var body: some View
-     {
-
-             ScrollView(.vertical, showsIndicators: false)
-             {
-                 Section(header: Text("Айтемы").font(.title2.bold()).padding(.top, 4))
-                 {
-                     ForEach(1...15, id: \.self)
-                     { index in
-                         Text("Элемент \(index)")
-                             .font(.title3)
-                             .padding()
-                             .padding(.horizontal, 35)
-                             .background(Color.gray.opacity(0.2))
-                             .cornerRadius(10)
-                     }.padding(1.5)
-                 }
-                 Text("Как-же мы постарели, но остались детьми").padding(.top, 20)
-             }
-             .navigationBarHidden(false)
-             .navigationTitle(Text("АйтемыНавигация"))
-             .navigationBarTitleDisplayMode(.inline)
-             .toolbar {
-                 ToolbarItem(placement: .navigationBarLeading) {
-                     Button(action: {
-                         // действия КНОПКИ СЕЛВА
-                     }) {
-                         Image(systemName: "arrow.backward")
-                     }
-                 }
-                 
-                 ToolbarItem(placement: .navigationBarTrailing) {
-                     Button(action: {
-                         // действия для кнопки справа
-                     }) {
-                         Text("ПрАЙТЕМ")
-                         
-                     }
-                 }
-             }
-
-         // navigationBarLeading - слева
-         // navigationBarTrailing - справа
-         // if need big navigation bar нужно всё обернуть в NavigationView
-                 
-     }
- }
-
- struct ItemGridView_Previews: PreviewProvider
- {
-     static var previews: some View
-     {
-         ItemGridView()
-     }
- }
-*/
