@@ -19,7 +19,9 @@ struct TextView: View
             Spacer()
 
             Text(mainTextViewModel.styledText.text)
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 8)
+                .foregroundColor(mainTextViewModel.styledText.textColor)
+                .font(mainTextViewModel.styledText.font)
 
                 
         }

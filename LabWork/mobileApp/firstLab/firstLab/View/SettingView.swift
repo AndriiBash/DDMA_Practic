@@ -11,7 +11,10 @@ struct SettingView: View
 {
     @State private var isShowingAuthor: Bool = false
     @State private var selectedColor: Color = Color.black
-    @State private var valueSizeText: Int = 6
+    
+    @State private var selectedTypeFont: Font.Weight = .light
+    
+    @State private var valueSizeText: Int = 24
     @State private var currentText: String = ""
     
     @ObservedObject var textViewModel = TextViewModel()
@@ -44,9 +47,25 @@ struct SettingView: View
                 
                 HStack
                 {
-                    Stepper("Розмір тексту: \(valueSizeText)", value: $valueSizeText, in: 6...40, step: 1)
+                    Stepper("Розмір тексту: \(valueSizeText)", value: $valueSizeText, in: 24...60, step: 1)
                         .padding(.leading, 16)
                         .padding(.trailing, 12)
+                }
+                .padding(.bottom, 8)
+                
+                HStack
+                {
+                    Text("Оберіть тип шрифту")
+                        .padding(.leading, 16)
+                    
+                    Picker(selection: $selectedTypeFont, label: Text(""))
+                    {
+                        Text("Light").tag(Font.Weight.light)
+                        Text("Medium").tag(Font.Weight.medium)
+                        Text("Heavy").tag(Font.Weight.heavy)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(.trailing, 12)
                 }
                                 
                 HStack
@@ -65,8 +84,9 @@ struct SettingView: View
                 {
                     // set right info in styled text obj
                     textViewModel.styledText.text = currentText
-                    textViewModel.styledText.textSize = valueSizeText
                     textViewModel.styledText.textColor = selectedColor
+                    textViewModel.styledText.font = .system(size: CGFloat(valueSizeText), weight: selectedTypeFont)
+
                 }
                 label:
                 {

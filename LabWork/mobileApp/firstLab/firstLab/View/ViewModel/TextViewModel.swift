@@ -12,21 +12,18 @@ class TextViewModel: ObservableObject
 {
     @Published var styledText = StyledText(text: "Custom Text",
                                            font: Font.system(size: 14),
-                                           textColor: Color.black,
-                                           textSize: 24)
+                                           textColor: Color.black)
 
     struct StyledText
     {
         var text: String
         var font: Font
         var textColor: Color
-        var textSize: Int
     }
 
     init(textInit: StyledText = StyledText(text: "Default Text",
                                            font: Font.system(size: 16),
-                                           textColor: Color.black,
-                                           textSize: 16))
+                                           textColor: Color.black))
     {
             self.styledText = textInit
     }

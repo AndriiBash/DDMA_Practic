@@ -37,9 +37,7 @@ struct ContentView: View
                 Text("Вихідний текст")
             }
         }
-        
-        //.animation(Animation.easeOut, value: 0.2)
-        
+                
     }
     
 }
