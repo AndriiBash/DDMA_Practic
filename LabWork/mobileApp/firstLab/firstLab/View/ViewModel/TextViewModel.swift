@@ -14,7 +14,7 @@ class TextViewModel: ObservableObject
                                            font: Font.system(size: 14),
                                            textColor: Color.black)
 
-    struct StyledText
+    struct StyledText: Equatable
     {
         var text: String
         var font: Font
