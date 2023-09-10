@@ -9,27 +9,46 @@ import SwiftUI
 
 struct SettingView: View
 {
-    @State var secretMessage: Bool = false
+    @State private var isShowingAuthor: Bool = false
+    @State private var selectedColor: Color = Color.black
+    @State private var valueSizeText: Int = 6
+    @State private var currentText: String = ""
     
-    @State private var isShowingAuthor = false
-    @State var currentText: String = ""
+    @ObservedObject var textViewModel = TextViewModel()
     
-    @State private var isOption1Selected = false
-    @State private var isOption2Selected = false
-    @State private var isOption3Selected = false
-    // и так далее для каждого элемента списка
-
-    
-
     var body: some View
     {
         ScrollView()
         {
             VStack
             {
-                //norm
                 Spacer()
                 
+                HStack
+                {
+                    Text("Оберіть колір: ")
+                        .padding(.leading, 16)
+                    
+                    Spacer()
+
+                    Picker(selection: $selectedColor, label: Text(""))
+                    {
+                        Text("Чорний").tag(Color.black)
+                        Text("Червоний").tag(Color.red)
+                        Text("Зелений").tag(Color.green)
+                        Text("Блакитний").tag(Color.blue)
+                        Text("Жовтий").tag(Color.yellow)
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                }
+                
+                HStack
+                {
+                    Stepper("Розмір тексту: \(valueSizeText)", value: $valueSizeText, in: 6...40, step: 1)
+                        .padding(.leading, 16)
+                        .padding(.trailing, 12)
+                }
+                                
                 HStack
                 {
                     TextField("Введіть текст", text: $currentText)
@@ -39,12 +58,15 @@ struct SettingView: View
                 }
                 .padding(.horizontal, 15)
                 .padding(.bottom, 12)
+                .padding(.top, 12)
                 
                
                 Button
                 {
-                    // send in right tab info text
-                    print(currentText)
+                    // set right info in styled text obj
+                    textViewModel.styledText.text = currentText
+                    textViewModel.styledText.textSize = valueSizeText
+                    textViewModel.styledText.textColor = selectedColor
                 }
                 label:
                 {
@@ -56,16 +78,7 @@ struct SettingView: View
                 .background(Color("MainButtonBG"))
                 .foregroundColor(Color.white)
                 .cornerRadius(16)
-                
-                
-                    Toggle("Опция 1", isOn: $isOption1Selected)
-                    Toggle("Опция 2", isOn: $isOption2Selected)
-                    Toggle("Опция 3", isOn: $isOption3Selected)
-                    // Добавьте другие флажки по аналогии
-                
-                
-                
-                
+
             }
             .alert(isPresented: $isShowingAuthor)
             {
@@ -100,6 +113,6 @@ struct SettingView_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        SettingView()
+        SettingView(textViewModel: TextViewModel())
     }
 }
