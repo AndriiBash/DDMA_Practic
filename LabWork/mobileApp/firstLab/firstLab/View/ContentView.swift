@@ -7,35 +7,40 @@
 
 import SwiftUI
 
-
 struct ContentView: View
 {
     @ObservedObject var geterStyledText = TextViewModel()
+    @ObservedObject var tabSelection  = TabSelectionViewModel()
     
     var body: some View
     {
-        TabView
+        TabView(selection: $tabSelection.selectedTab)
         {
             NavigationView
             {
-                SettingView(textViewModel: geterStyledText) // get obj textViewModel
+                SettingView(textViewModel: geterStyledText,
+                            tabSelection: tabSelection) // get obj textViewModel
             }
             .tabItem()
             {
                 Image(systemName: "square.and.pencil")
                 Text("Налаштування")
             }
+            .tag(0)
                         
+            
+            
             NavigationView
             {
                 TextView(mainTextViewModel: geterStyledText)    // send obj textViewModel
             }
-            
             .tabItem()
             {
                 Image(systemName: "text.viewfinder")
                 Text("Вихідний текст")
             }
+            .tag(1)
+            
         }
                 
     }

@@ -16,6 +16,7 @@ struct SettingView: View
     @State private var currentText: String = ""
     
     @ObservedObject var textViewModel = TextViewModel()
+    @ObservedObject var tabSelection  = TabSelectionViewModel()
     
     var body: some View
     {
@@ -85,6 +86,7 @@ struct SettingView: View
                     textViewModel.styledText.textColor = selectedColor
                     textViewModel.styledText.font = .system(size: CGFloat(valueSizeText), weight: selectedTypeFont)
 
+                    tabSelection.selectedTab = 1 // for go to second tab in ContentView
                 }
                 label:
                 {
@@ -131,6 +133,7 @@ struct SettingView_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        SettingView(textViewModel: TextViewModel())
+        SettingView(textViewModel: TextViewModel(),
+                    tabSelection: TabSelectionViewModel())
     }
 }
