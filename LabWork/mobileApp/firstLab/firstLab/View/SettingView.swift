@@ -11,9 +11,7 @@ struct SettingView: View
 {
     @State private var isShowingAuthor: Bool = false
     @State private var selectedColor: Color = Color.black
-    
     @State private var selectedTypeFont: Font.Weight = .light
-    
     @State private var valueSizeText: Int = 24
     @State private var currentText: String = ""
     
