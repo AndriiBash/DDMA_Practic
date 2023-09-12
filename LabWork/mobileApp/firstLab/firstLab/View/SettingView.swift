@@ -11,12 +11,13 @@ struct SettingView: View
 {
     @State private var isShowingAuthor: Bool = false
     @State private var selectedColor: Color = Color.black
-    @State private var selectedTypeFont: Font.Weight = .light
+    @State private var selectedTypeFont: String = "light"
     @State private var valueSizeText: Int = 24
     @State private var currentText: String = ""
     
     @ObservedObject var textViewModel = TextViewModel()
     @ObservedObject var tabSelection  = TabSelectionViewModel()
+    
     
     var body: some View
     {
@@ -42,6 +43,10 @@ struct SettingView: View
                         Text("Жовтий").tag(Color.yellow)
                     }
                     .pickerStyle(MenuPickerStyle())
+                    .onAppear
+                    {
+                        selectedColor = textViewModel.styledText.textColor
+                    }
                 }
                 
                 HStack
@@ -51,6 +56,10 @@ struct SettingView: View
                         .padding(.trailing, 12)
                 }
                 .padding(.bottom, 8)
+                .onAppear
+                {
+                    valueSizeText = textViewModel.styledText.sizeText
+                }
                 
                 HStack
                 {
@@ -59,12 +68,16 @@ struct SettingView: View
                     
                     Picker(selection: $selectedTypeFont, label: Text(""))
                     {
-                        Text("Light").tag(Font.Weight.light)
-                        Text("Medium").tag(Font.Weight.medium)
-                        Text("Heavy").tag(Font.Weight.heavy)
+                        Text("Light").tag("light")
+                        Text("Medium").tag("medium")
+                        Text("Heavy").tag("heavy")
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .padding(.trailing, 12)
+                    .onAppear
+                    {
+                        selectedTypeFont = textViewModel.styledText.weightText
+                    }
                 }
                                 
                 HStack
@@ -73,6 +86,10 @@ struct SettingView: View
                         .padding(6)
                         .background(RoundedRectangle(cornerRadius: 13).stroke(Color.gray, lineWidth: 1)) // Задаємо рамку та скруглення
                         .shadow(radius: 12)
+                        .onAppear {
+                                   // Вызываем метод getText() на экземпляре textViewModel
+                                   currentText = textViewModel.getText()
+                               }
                 }
                 .padding(.horizontal, 15)
                 .padding(.bottom, 12)
@@ -81,18 +98,51 @@ struct SettingView: View
                
                 Button
                 {
-                    // set right info in styled text obj
-                    textViewModel.styledText.text = currentText
-                    textViewModel.styledText.textColor = selectedColor
-                    textViewModel.styledText.font = .system(size: CGFloat(valueSizeText), weight: selectedTypeFont)
-
+                    //setSett
+                    setSettingTextObj()
                     tabSelection.selectedTab = 1 // for go to second tab in ContentView
                 }
                 label:
                 {
                     Text("Вивести текст")
                         .padding(.vertical, 12)
+                        .padding(.horizontal, 83)
+                        .font(Font.callout.bold())
+                }
+                .background(Color("MainButtonBG"))
+                .foregroundColor(Color.white)
+                .cornerRadius(16)
+                
+                
+                Button
+                {
+                    // save
+                    setSettingTextObj()
+                    textViewModel.saveSettings()
+                }
+                label:
+                {
+                    Text("Зберегти налаштування")
+                        .padding(.vertical, 12)
                         .padding(.horizontal, 45)
+                        .font(Font.callout.bold())
+                }
+                .background(Color("MainButtonBG"))
+                .foregroundColor(Color.white)
+                .cornerRadius(16)
+                
+                
+                Button
+                {
+                    // del
+                    deletedSettingTextObj()
+                    textViewModel.saveSettings()
+                }
+                label:
+                {
+                    Text("Скинути налаштування")
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 50)
                         .font(Font.callout.bold())
                 }
                 .background(Color("MainButtonBG"))
@@ -107,6 +157,7 @@ struct SettingView: View
                     message: Text("Розробник програми студент групи КН-23-1Т Ізбаш Андрій"))
             }
         
+
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .navigationBarHidden(false)
@@ -126,7 +177,25 @@ struct SettingView: View
             }
         }
         
+        
     }
+    
+    func setSettingTextObj()
+    {
+        textViewModel.styledText.text = currentText
+        textViewModel.styledText.sizeText = valueSizeText
+        textViewModel.styledText.textColor = selectedColor
+        textViewModel.styledText.weightText = selectedTypeFont
+    }
+    
+    func deletedSettingTextObj()
+    {
+        textViewModel.styledText.text = ""
+        textViewModel.styledText.sizeText = 24
+        textViewModel.styledText.textColor = .black
+        textViewModel.styledText.weightText = "light"
+    }
+    
 }
 
 struct SettingView_Previews: PreviewProvider
@@ -137,3 +206,4 @@ struct SettingView_Previews: PreviewProvider
                     tabSelection: TabSelectionViewModel())
     }
 }
+

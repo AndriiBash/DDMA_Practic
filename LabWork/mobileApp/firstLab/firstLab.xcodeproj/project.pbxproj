@@ -10,7 +10,6 @@
 		B50412542AAE4174006A5446 /* TabSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50412532AAE4174006A5446 /* TabSelectionViewModel.swift */; };
 		B5764EE22AAC634A00B784F9 /* firstLabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5764EE12AAC634A00B784F9 /* firstLabApp.swift */; };
 		B5764EE42AAC634A00B784F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5764EE32AAC634A00B784F9 /* ContentView.swift */; };
-		B5764EE92AAC634A00B784F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5764EE82AAC634A00B784F9 /* Preview Assets.xcassets */; };
 		B5764EF12AAC690200B784F9 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5764EF02AAC690200B784F9 /* SettingView.swift */; };
 		B5764EF22AAC826700B784F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5764EE52AAC634A00B784F9 /* Assets.xcassets */; };
 		B5AF80362AADC2EA007F1A92 /* TextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF80352AADC2EA007F1A92 /* TextViewModel.swift */; };
@@ -23,7 +22,6 @@
 		B5764EE12AAC634A00B784F9 /* firstLabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstLabApp.swift; sourceTree = "<group>"; };
 		B5764EE32AAC634A00B784F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B5764EE52AAC634A00B784F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B5764EE82AAC634A00B784F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B5764EF02AAC690200B784F9 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B5AF80352AADC2EA007F1A92 /* TextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewModel.swift; sourceTree = "<group>"; };
 		B5BB61EE2AAE0D8C0082A36C /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
@@ -60,19 +58,11 @@
 			isa = PBXGroup;
 			children = (
 				B5764EE12AAC634A00B784F9 /* firstLabApp.swift */,
+				B5AF80322AADC2C0007F1A92 /* ViewModel */,
 				B5764EEF2AAC680A00B784F9 /* View */,
 				B5764EE52AAC634A00B784F9 /* Assets.xcassets */,
-				B5764EE72AAC634A00B784F9 /* Preview Content */,
 			);
 			path = firstLab;
-			sourceTree = "<group>";
-		};
-		B5764EE72AAC634A00B784F9 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				B5764EE82AAC634A00B784F9 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		B5764EEF2AAC680A00B784F9 /* View */ = {
@@ -81,7 +71,6 @@
 				B5764EE32AAC634A00B784F9 /* ContentView.swift */,
 				B5BB61EE2AAE0D8C0082A36C /* TextView.swift */,
 				B5764EF02AAC690200B784F9 /* SettingView.swift */,
-				B5AF80322AADC2C0007F1A92 /* ViewModel */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -154,7 +143,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5764EF22AAC826700B784F9 /* Assets.xcassets in Resources */,
-				B5764EE92AAC634A00B784F9 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +287,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"firstLab/Preview Content\"";
+				DEVELOPMENT_TEAM = L4XDJUG5Z2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -327,6 +316,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"firstLab/Preview Content\"";
+				DEVELOPMENT_TEAM = L4XDJUG5Z2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
