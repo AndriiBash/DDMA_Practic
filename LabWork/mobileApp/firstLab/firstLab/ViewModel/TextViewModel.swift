@@ -17,7 +17,6 @@ class TextViewModel: ObservableObject
     
     private let userSettings = UserDefaults.standard
 
-        
     struct StyledText: Equatable
     {
         var text: String
@@ -35,7 +34,6 @@ class TextViewModel: ObservableObject
         loadSettings()
 
         //self.styledText = textInit
-        
     }
     
     
@@ -62,7 +60,6 @@ class TextViewModel: ObservableObject
         default:
             self.styledText.textColor = Color.black
         }
-                        
     }
     
     
@@ -87,13 +84,7 @@ class TextViewModel: ObservableObject
         default:
             userSettings.set("black", forKey: "textColor")
         }
-        
-        
-        
-        
     }
-    
-    
     
     public func printers()
     {
@@ -101,17 +92,10 @@ class TextViewModel: ObservableObject
         print("\(String(describing: UserDefaults.standard.string(forKey: "sizeText")))")
         print("\(String(describing: UserDefaults.standard.string(forKey: "textColor")))")
         print("\(String(describing: UserDefaults.standard.string(forKey: "weightText")))")
-
-
-        
-        //print("\(String(describing: UserDefaults.standard.string(forKey: "font")))")
     }
-    
     
     public func getText() -> String
     {
         return self.styledText.text
     }
-    
-    
 }

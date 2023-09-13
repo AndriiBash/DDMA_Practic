@@ -22,7 +22,7 @@ struct TextView: View
         case "heavy":
             return .heavy
         default:
-            return .light // В случае, если значение не распознано, установите значение по умолчанию
+            return .light
         }
     }
     
@@ -37,7 +37,7 @@ struct TextView: View
                 .foregroundColor(mainTextViewModel.styledText.textColor)
             
                 .font(Font.system(size: CGFloat(mainTextViewModel.styledText.sizeText)))
-            
+    
                 .fontWeight(fontWeight)
             
                 .animation(Animation.easeInOut(duration: 0.3), value: mainTextViewModel.styledText)

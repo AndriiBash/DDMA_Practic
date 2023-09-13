@@ -29,7 +29,6 @@ struct ContentView: View
             .tag(0)
                         
             
-            
             NavigationView
             {
                 TextView(mainTextViewModel: geterStyledText)    // send obj textViewModel

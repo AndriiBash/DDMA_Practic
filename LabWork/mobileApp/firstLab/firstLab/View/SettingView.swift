@@ -86,10 +86,10 @@ struct SettingView: View
                         .padding(6)
                         .background(RoundedRectangle(cornerRadius: 13).stroke(Color.gray, lineWidth: 1)) // Задаємо рамку та скруглення
                         .shadow(radius: 12)
-                        .onAppear {
-                                   // Вызываем метод getText() на экземпляре textViewModel
-                                   currentText = textViewModel.getText()
-                               }
+                        .onAppear
+                        {
+                            currentText = textViewModel.getText()
+                        }
                 }
                 .padding(.horizontal, 15)
                 .padding(.bottom, 12)
