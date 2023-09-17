@@ -8,9 +8,12 @@
 import SwiftUI
 
 @main
-struct secondLabApp: App {
-    var body: some Scene {
-        WindowGroup {
+struct secondLabApp: App
+{
+    var body: some Scene
+    {
+        WindowGroup
+        {
             ContentView()
         }
     }
