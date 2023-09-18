@@ -9,14 +9,14 @@ import SwiftUI
 
 struct GestureView: View
 {
-    @State private var offset: CGSize = .zero
-    @State private var isAnimation: Bool = true
-    @State private var circleInsideRectangle = false
+    @State private var offset: CGSize = .zero   // координати фігури для перетаскання
+    @State private var circleInsideRectangle = false // стан попадання фігури до верхнього синього прямокутника
 
     var body: some View
     {
         VStack
         {
+            // Верхній синій прямокутний
             Rectangle()
                 .frame(height: 100)
                 .foregroundColor(.blue)
@@ -29,6 +29,7 @@ struct GestureView: View
             Text("Перетягніть круг догори щоб закрити додаток")
                 .font(.headline)
             
+            // Фігура для перетаскання
             Circle()
                 .frame(width: 150, height: 150)
                 .foregroundColor(.blue)
@@ -36,11 +37,11 @@ struct GestureView: View
                 .offset(offset)
                 .gesture(
                     DragGesture()
-                        .onChanged
+                        .onChanged // Початок виконання жесту
                     { value in
                         offset = value.translation
-                        isAnimation = true
-                        
+
+                        // Умова попадання фігури до синього прямокутника
                         if value.location.y <= -500
                         {
                             circleInsideRectangle = true
@@ -50,7 +51,7 @@ struct GestureView: View
                             circleInsideRectangle = false
                         }
                     }
-                        .onEnded
+                        .onEnded // Кінець виконання жесту
                     { value in
                         withAnimation(Animation.easeOut(duration: 0.5))
                         {
@@ -64,7 +65,7 @@ struct GestureView: View
                         }
                     }
                 )
-                .opacity(circleInsideRectangle ? 0.75 : 1)
+                .opacity(circleInsideRectangle ? 0.75 : 1) // прозорість перетаскємої фігури у разі якщо вона потрапила до синього прямокутнику
                 .padding(.bottom, 15)
         }
     }

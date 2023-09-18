@@ -29,16 +29,7 @@ struct ContentView: View
                 Image(systemName: "hand.draw")
                 Text("Жести")
             }
-            
-            
-            
-            
-            
-            
-            
         }
-        
-      
     }
 }
 
