@@ -82,7 +82,6 @@ struct CharTabView: View
             .padding(.top, 340)
         }
         .navigationTitle("Виведенна буква «E» за допомогою ліній")
-        
     }
 }
 
