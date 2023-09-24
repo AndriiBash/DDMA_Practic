@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Charts
+import Foundation
 
 struct DefaultChartView: View
 {
@@ -19,6 +20,8 @@ struct DefaultChartView: View
     @State var startValue = "0"
     @State var endValue   = "50"
     @State var stepValue  = "0.1"
+    
+    private let userSettings = UserDefaults.standard
     
     var body: some View
     {
@@ -64,7 +67,7 @@ struct DefaultChartView: View
                     .background(RoundedRectangle(cornerRadius: 18).stroke(Color.gray, lineWidth: 1))
                     .keyboardType(.numberPad)
                 
-                TextField("Введіть кінецт інтервалу", text: $endValue)
+                TextField("Введіть кінець інтервалу", text: $endValue)
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 18).stroke(Color.gray, lineWidth: 1))
                     .keyboardType(.numberPad)
@@ -75,26 +78,85 @@ struct DefaultChartView: View
                     .keyboardType(.numberPad)
             }
             .padding(.horizontal, 16)
-            
-            
-            Button
-            {
-                setNewValues()
-            }
-            label:
-            {
-                Text("Зобразити")
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 16)
 
-            }
-            .background(.black)
-            .foregroundColor(.white)
-            .cornerRadius(12)
-            .shadow(radius: 12)
-            .padding(.top, 12)
-            .padding(.bottom, 16)
             
+            HStack
+            {
+                VStack(spacing: 15)
+                {
+                    
+                    Button
+                    {
+                        setNewValues()
+                    }
+                    label:
+                    {
+                        Text("Зобразити")
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 16)
+
+                    }
+                    .frame(maxWidth: .infinity)
+                    .background(.black)
+                    .foregroundColor(.white)
+                    .cornerRadius(12)
+                    .shadow(radius: 12)
+                    
+                    
+                    Button
+                    {
+                        saveSetting()
+                    }
+                    label:
+                    {
+                        Text("Зберегти налаштування")
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 16)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .background(.black)
+                    .foregroundColor(.white)
+                    .cornerRadius(12)
+                    .shadow(radius: 12)
+                    
+                    
+                    Button
+                    {
+                        loadSetting()
+                    }
+                    label:
+                    {
+                        Text("Завантажити налаштування")
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 16)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .background(.black)
+                    .foregroundColor(.white)
+                    .cornerRadius(12)
+                    .shadow(radius: 12)
+                    
+                    
+                    Button
+                    {
+                        clearSetting()
+                    }
+                    label:
+                    {
+                        Text("Скинути налаштування")
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 16)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .background(.black)
+                    .foregroundColor(.white)
+                    .cornerRadius(12)
+                    .shadow(radius: 12)
+                    
+                }
+            }
+            .padding(.horizontal, 18)
+            .padding(.top, 26)
             
         }
         .navigationTitle(Text("Формула y = 6 ∙ sin (x) ∙ x "))
@@ -142,6 +204,32 @@ struct DefaultChartView: View
         {
             alertIsShow = true
         }
+    }
+    
+    
+    func saveSetting()
+    {
+        userSettings.set(startValue, forKey: "startValueSet")
+        userSettings.set(endValue,   forKey: "endValueSet")
+        userSettings.set(stepValue,  forKey: "stepValueSet")
+    }
+    
+    
+    func loadSetting()
+    {
+        startValue = UserDefaults.standard.string(forKey: "startValueSet") ?? "0"
+        endValue = UserDefaults.standard.string(forKey: "endValueSet") ?? "20"
+        stepValue = UserDefaults.standard.string(forKey: "stepValueSet") ?? "0.1"
+    }
+    
+    
+    func clearSetting()
+    {
+        startValue = "0"
+        endValue   = "20"
+        stepValue  = "0.1"
+        
+        saveSetting()
     }
 }
 
