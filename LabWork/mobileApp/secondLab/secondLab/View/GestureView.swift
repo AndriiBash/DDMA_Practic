@@ -46,7 +46,7 @@ struct GestureView: View
                         {
                             circleInsideRectangle = true
                         }
-                        else
+                        else //
                         {
                             circleInsideRectangle = false
                         }
