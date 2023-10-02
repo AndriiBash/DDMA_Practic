@@ -32,10 +32,7 @@ struct DefaultChartView: View
                 Chart(dataChart)
                 { d in
                     LineMark(x: .value("x", d.x), y: .value("y", d.y))
-                    
-                    // для відображень значень х та більш кривого та не гарного графіка
-                    //"\(Int(d.x))"
-                    
+                                        
                     // показати або сховати середнє значення на графіку
                     if avarageIsShow
                     {
