@@ -7,32 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B5FF75A82AC9488E007FDB3D /* fourthLabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75A72AC9488E007FDB3D /* fourthLabApp.swift */; };
-		B5FF75AA2AC9488E007FDB3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75A92AC9488E007FDB3D /* ContentView.swift */; };
-		B5FF75AC2AC9488F007FDB3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5FF75AB2AC9488F007FDB3D /* Assets.xcassets */; };
-		B5FF75AF2AC9488F007FDB3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5FF75AE2AC9488F007FDB3D /* Preview Assets.xcassets */; };
-		B5FF75B82AC9493F007FDB3D /* MoveCirvleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75B72AC9493F007FDB3D /* MoveCirvleView.swift */; };
-		B5FF75BB2AC949CF007FDB3D /* VibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75BA2AC949CF007FDB3D /* VibrationView.swift */; };
-		B5FF75BD2AC94A06007FDB3D /* FlashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75BC2AC94A06007FDB3D /* FlashView.swift */; };
-		B5FF75BF2AC96DCA007FDB3D /* AccelerometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75BE2AC96DCA007FDB3D /* AccelerometerView.swift */; };
-		B5FF75C12AC96E89007FDB3D /* AccelemometerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75C02AC96E89007FDB3D /* AccelemometerViewModel.swift */; };
+		B554E4F92AD15B870012D4D5 /* sixthLabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B554E4F82AD15B870012D4D5 /* sixthLabApp.swift */; };
+		B554E4FB2AD15B870012D4D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B554E4FA2AD15B870012D4D5 /* ContentView.swift */; };
+		B554E4FD2AD15B880012D4D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B554E4FC2AD15B880012D4D5 /* Assets.xcassets */; };
+		B554E5002AD15B880012D4D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B554E4FF2AD15B880012D4D5 /* Preview Assets.xcassets */; };
+		B55D0A822AD163F00022CD4A /* MainWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55D0A812AD163F00022CD4A /* MainWeatherView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B5FF75A42AC9488E007FDB3D /* fourthLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fourthLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5FF75A72AC9488E007FDB3D /* fourthLabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fourthLabApp.swift; sourceTree = "<group>"; };
-		B5FF75A92AC9488E007FDB3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B5FF75AB2AC9488F007FDB3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B5FF75AE2AC9488F007FDB3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B5FF75B72AC9493F007FDB3D /* MoveCirvleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCirvleView.swift; sourceTree = "<group>"; };
-		B5FF75BA2AC949CF007FDB3D /* VibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationView.swift; sourceTree = "<group>"; };
-		B5FF75BC2AC94A06007FDB3D /* FlashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashView.swift; sourceTree = "<group>"; };
-		B5FF75BE2AC96DCA007FDB3D /* AccelerometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerometerView.swift; sourceTree = "<group>"; };
-		B5FF75C02AC96E89007FDB3D /* AccelemometerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelemometerViewModel.swift; sourceTree = "<group>"; };
+		B554E4F52AD15B870012D4D5 /* sixthLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sixthLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B554E4F82AD15B870012D4D5 /* sixthLabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sixthLabApp.swift; sourceTree = "<group>"; };
+		B554E4FA2AD15B870012D4D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B554E4FC2AD15B880012D4D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B554E4FF2AD15B880012D4D5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B55D0A812AD163F00022CD4A /* MainWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWeatherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B5FF75A12AC9488E007FDB3D /* Frameworks */ = {
+		B554E4F22AD15B870012D4D5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,98 +34,86 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B5FF759B2AC9488E007FDB3D = {
+		B554E4EC2AD15B870012D4D5 = {
 			isa = PBXGroup;
 			children = (
-				B5FF75A62AC9488E007FDB3D /* fourthLab */,
-				B5FF75A52AC9488E007FDB3D /* Products */,
+				B554E4F72AD15B870012D4D5 /* sixthLab */,
+				B554E4F62AD15B870012D4D5 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		B5FF75A52AC9488E007FDB3D /* Products */ = {
+		B554E4F62AD15B870012D4D5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B5FF75A42AC9488E007FDB3D /* fourthLab.app */,
+				B554E4F52AD15B870012D4D5 /* sixthLab.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B5FF75A62AC9488E007FDB3D /* fourthLab */ = {
+		B554E4F72AD15B870012D4D5 /* sixthLab */ = {
 			isa = PBXGroup;
 			children = (
-				B5FF75A72AC9488E007FDB3D /* fourthLabApp.swift */,
-				B5FF75C22AC96EA6007FDB3D /* ViewModel */,
-				B5FF75B92AC9494C007FDB3D /* View */,
-				B5FF75AB2AC9488F007FDB3D /* Assets.xcassets */,
-				B5FF75AD2AC9488F007FDB3D /* Preview Content */,
+				B554E4F82AD15B870012D4D5 /* sixthLabApp.swift */,
+				B55D0A802AD163BF0022CD4A /* View */,
+				B554E4FC2AD15B880012D4D5 /* Assets.xcassets */,
+				B554E4FE2AD15B880012D4D5 /* Preview Content */,
 			);
-			path = fourthLab;
+			path = sixthLab;
 			sourceTree = "<group>";
 		};
-		B5FF75AD2AC9488F007FDB3D /* Preview Content */ = {
+		B554E4FE2AD15B880012D4D5 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				B5FF75AE2AC9488F007FDB3D /* Preview Assets.xcassets */,
+				B554E4FF2AD15B880012D4D5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		B5FF75B92AC9494C007FDB3D /* View */ = {
+		B55D0A802AD163BF0022CD4A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B5FF75BC2AC94A06007FDB3D /* FlashView.swift */,
-				B5FF75A92AC9488E007FDB3D /* ContentView.swift */,
-				B5FF75B72AC9493F007FDB3D /* MoveCirvleView.swift */,
-				B5FF75BA2AC949CF007FDB3D /* VibrationView.swift */,
-				B5FF75BE2AC96DCA007FDB3D /* AccelerometerView.swift */,
+				B554E4FA2AD15B870012D4D5 /* ContentView.swift */,
+				B55D0A812AD163F00022CD4A /* MainWeatherView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B5FF75C22AC96EA6007FDB3D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				B5FF75C02AC96E89007FDB3D /* AccelemometerViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B5FF75A32AC9488E007FDB3D /* fourthLab */ = {
+		B554E4F42AD15B870012D4D5 /* sixthLab */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5FF75B22AC9488F007FDB3D /* Build configuration list for PBXNativeTarget "fourthLab" */;
+			buildConfigurationList = B554E5032AD15B880012D4D5 /* Build configuration list for PBXNativeTarget "sixthLab" */;
 			buildPhases = (
-				B5FF75A02AC9488E007FDB3D /* Sources */,
-				B5FF75A12AC9488E007FDB3D /* Frameworks */,
-				B5FF75A22AC9488E007FDB3D /* Resources */,
+				B554E4F12AD15B870012D4D5 /* Sources */,
+				B554E4F22AD15B870012D4D5 /* Frameworks */,
+				B554E4F32AD15B870012D4D5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = fourthLab;
-			productName = fourthLab;
-			productReference = B5FF75A42AC9488E007FDB3D /* fourthLab.app */;
+			name = sixthLab;
+			productName = sixthLab;
+			productReference = B554E4F52AD15B870012D4D5 /* sixthLab.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B5FF759C2AC9488E007FDB3D /* Project object */ = {
+		B554E4ED2AD15B870012D4D5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					B5FF75A32AC9488E007FDB3D = {
+					B554E4F42AD15B870012D4D5 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
-			buildConfigurationList = B5FF759F2AC9488E007FDB3D /* Build configuration list for PBXProject "fourthLab" */;
+			buildConfigurationList = B554E4F02AD15B870012D4D5 /* Build configuration list for PBXProject "sixthLab" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -141,47 +121,43 @@
 				en,
 				Base,
 			);
-			mainGroup = B5FF759B2AC9488E007FDB3D;
-			productRefGroup = B5FF75A52AC9488E007FDB3D /* Products */;
+			mainGroup = B554E4EC2AD15B870012D4D5;
+			productRefGroup = B554E4F62AD15B870012D4D5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B5FF75A32AC9488E007FDB3D /* fourthLab */,
+				B554E4F42AD15B870012D4D5 /* sixthLab */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B5FF75A22AC9488E007FDB3D /* Resources */ = {
+		B554E4F32AD15B870012D4D5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5FF75AF2AC9488F007FDB3D /* Preview Assets.xcassets in Resources */,
-				B5FF75AC2AC9488F007FDB3D /* Assets.xcassets in Resources */,
+				B554E5002AD15B880012D4D5 /* Preview Assets.xcassets in Resources */,
+				B554E4FD2AD15B880012D4D5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B5FF75A02AC9488E007FDB3D /* Sources */ = {
+		B554E4F12AD15B870012D4D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5FF75BF2AC96DCA007FDB3D /* AccelerometerView.swift in Sources */,
-				B5FF75BD2AC94A06007FDB3D /* FlashView.swift in Sources */,
-				B5FF75AA2AC9488E007FDB3D /* ContentView.swift in Sources */,
-				B5FF75B82AC9493F007FDB3D /* MoveCirvleView.swift in Sources */,
-				B5FF75C12AC96E89007FDB3D /* AccelemometerViewModel.swift in Sources */,
-				B5FF75A82AC9488E007FDB3D /* fourthLabApp.swift in Sources */,
-				B5FF75BB2AC949CF007FDB3D /* VibrationView.swift in Sources */,
+				B554E4FB2AD15B870012D4D5 /* ContentView.swift in Sources */,
+				B554E4F92AD15B870012D4D5 /* sixthLabApp.swift in Sources */,
+				B55D0A822AD163F00022CD4A /* MainWeatherView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		B5FF75B02AC9488F007FDB3D /* Debug */ = {
+		B554E5012AD15B880012D4D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,7 +220,7 @@
 			};
 			name = Debug;
 		};
-		B5FF75B12AC9488F007FDB3D /* Release */ = {
+		B554E5022AD15B880012D4D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -300,20 +276,22 @@
 			};
 			name = Release;
 		};
-		B5FF75B32AC9488F007FDB3D /* Debug */ = {
+		B554E5042AD15B880012D4D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"fourthLab/Preview Content\"";
-				DEVELOPMENT_TEAM = L4XDJUG5Z2;
+				DEVELOPMENT_ASSET_PATHS = "\"sixthLab/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -321,7 +299,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AndriiIzbash.fourthLab;
+				PRODUCT_BUNDLE_IDENTIFIER = AndriiIzbash.sixthLab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -329,20 +307,22 @@
 			};
 			name = Debug;
 		};
-		B5FF75B42AC9488F007FDB3D /* Release */ = {
+		B554E5052AD15B880012D4D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"fourthLab/Preview Content\"";
-				DEVELOPMENT_TEAM = L4XDJUG5Z2;
+				DEVELOPMENT_ASSET_PATHS = "\"sixthLab/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -350,7 +330,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AndriiIzbash.fourthLab;
+				PRODUCT_BUNDLE_IDENTIFIER = AndriiIzbash.sixthLab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -361,25 +341,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B5FF759F2AC9488E007FDB3D /* Build configuration list for PBXProject "fourthLab" */ = {
+		B554E4F02AD15B870012D4D5 /* Build configuration list for PBXProject "sixthLab" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B5FF75B02AC9488F007FDB3D /* Debug */,
-				B5FF75B12AC9488F007FDB3D /* Release */,
+				B554E5012AD15B880012D4D5 /* Debug */,
+				B554E5022AD15B880012D4D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5FF75B22AC9488F007FDB3D /* Build configuration list for PBXNativeTarget "fourthLab" */ = {
+		B554E5032AD15B880012D4D5 /* Build configuration list for PBXNativeTarget "sixthLab" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B5FF75B32AC9488F007FDB3D /* Debug */,
-				B5FF75B42AC9488F007FDB3D /* Release */,
+				B554E5042AD15B880012D4D5 /* Debug */,
+				B554E5052AD15B880012D4D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B5FF759C2AC9488E007FDB3D /* Project object */;
+	rootObject = B554E4ED2AD15B870012D4D5 /* Project object */;
 }

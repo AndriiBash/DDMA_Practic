@@ -7,32 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B5FF75A82AC9488E007FDB3D /* fourthLabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75A72AC9488E007FDB3D /* fourthLabApp.swift */; };
-		B5FF75AA2AC9488E007FDB3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75A92AC9488E007FDB3D /* ContentView.swift */; };
-		B5FF75AC2AC9488F007FDB3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5FF75AB2AC9488F007FDB3D /* Assets.xcassets */; };
-		B5FF75AF2AC9488F007FDB3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5FF75AE2AC9488F007FDB3D /* Preview Assets.xcassets */; };
-		B5FF75B82AC9493F007FDB3D /* MoveCirvleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75B72AC9493F007FDB3D /* MoveCirvleView.swift */; };
-		B5FF75BB2AC949CF007FDB3D /* VibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75BA2AC949CF007FDB3D /* VibrationView.swift */; };
-		B5FF75BD2AC94A06007FDB3D /* FlashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75BC2AC94A06007FDB3D /* FlashView.swift */; };
-		B5FF75BF2AC96DCA007FDB3D /* AccelerometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75BE2AC96DCA007FDB3D /* AccelerometerView.swift */; };
-		B5FF75C12AC96E89007FDB3D /* AccelemometerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FF75C02AC96E89007FDB3D /* AccelemometerViewModel.swift */; };
+		B5B4965C2ACDAAE70084C962 /* fifthLabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B4965B2ACDAAE70084C962 /* fifthLabApp.swift */; };
+		B5B4965E2ACDAAE70084C962 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B4965D2ACDAAE70084C962 /* ContentView.swift */; };
+		B5B496602ACDAAE80084C962 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5B4965F2ACDAAE80084C962 /* Assets.xcassets */; };
+		B5B496632ACDAAE80084C962 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5B496622ACDAAE80084C962 /* Preview Assets.xcassets */; };
+		B5B4966A2ACDAC0E0084C962 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B496692ACDAC0E0084C962 /* PhotoView.swift */; };
+		B5B4966D2ACDB29A0084C962 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B4966C2ACDB29A0084C962 /* ImagePicker.swift */; };
+		B5B496702ACDB5BB0084C962 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B4966F2ACDB5BB0084C962 /* URLView.swift */; };
+		B5B496722ACDC1F10084C962 /* PhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B496712ACDC1F10084C962 /* PhoneView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B5FF75A42AC9488E007FDB3D /* fourthLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fourthLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5FF75A72AC9488E007FDB3D /* fourthLabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fourthLabApp.swift; sourceTree = "<group>"; };
-		B5FF75A92AC9488E007FDB3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B5FF75AB2AC9488F007FDB3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B5FF75AE2AC9488F007FDB3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B5FF75B72AC9493F007FDB3D /* MoveCirvleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCirvleView.swift; sourceTree = "<group>"; };
-		B5FF75BA2AC949CF007FDB3D /* VibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationView.swift; sourceTree = "<group>"; };
-		B5FF75BC2AC94A06007FDB3D /* FlashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashView.swift; sourceTree = "<group>"; };
-		B5FF75BE2AC96DCA007FDB3D /* AccelerometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerometerView.swift; sourceTree = "<group>"; };
-		B5FF75C02AC96E89007FDB3D /* AccelemometerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelemometerViewModel.swift; sourceTree = "<group>"; };
+		B5B496582ACDAAE70084C962 /* fifthLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fifthLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5B4965B2ACDAAE70084C962 /* fifthLabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fifthLabApp.swift; sourceTree = "<group>"; };
+		B5B4965D2ACDAAE70084C962 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B5B4965F2ACDAAE80084C962 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B5B496622ACDAAE80084C962 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B5B496692ACDAC0E0084C962 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		B5B4966C2ACDB29A0084C962 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		B5B4966F2ACDB5BB0084C962 /* URLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLView.swift; sourceTree = "<group>"; };
+		B5B496712ACDC1F10084C962 /* PhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B5FF75A12AC9488E007FDB3D /* Frameworks */ = {
+		B5B496552ACDAAE70084C962 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,98 +40,97 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B5FF759B2AC9488E007FDB3D = {
+		B5B4964F2ACDAAE70084C962 = {
 			isa = PBXGroup;
 			children = (
-				B5FF75A62AC9488E007FDB3D /* fourthLab */,
-				B5FF75A52AC9488E007FDB3D /* Products */,
+				B5B4965A2ACDAAE70084C962 /* fifthLab */,
+				B5B496592ACDAAE70084C962 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		B5FF75A52AC9488E007FDB3D /* Products */ = {
+		B5B496592ACDAAE70084C962 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B5FF75A42AC9488E007FDB3D /* fourthLab.app */,
+				B5B496582ACDAAE70084C962 /* fifthLab.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B5FF75A62AC9488E007FDB3D /* fourthLab */ = {
+		B5B4965A2ACDAAE70084C962 /* fifthLab */ = {
 			isa = PBXGroup;
 			children = (
-				B5FF75A72AC9488E007FDB3D /* fourthLabApp.swift */,
-				B5FF75C22AC96EA6007FDB3D /* ViewModel */,
-				B5FF75B92AC9494C007FDB3D /* View */,
-				B5FF75AB2AC9488F007FDB3D /* Assets.xcassets */,
-				B5FF75AD2AC9488F007FDB3D /* Preview Content */,
+				B5B4965B2ACDAAE70084C962 /* fifthLabApp.swift */,
+				B5B4966E2ACDB2A50084C962 /* Picker */,
+				B5B4966B2ACDAC130084C962 /* View */,
+				B5B4965F2ACDAAE80084C962 /* Assets.xcassets */,
+				B5B496612ACDAAE80084C962 /* Preview Content */,
 			);
-			path = fourthLab;
+			path = fifthLab;
 			sourceTree = "<group>";
 		};
-		B5FF75AD2AC9488F007FDB3D /* Preview Content */ = {
+		B5B496612ACDAAE80084C962 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				B5FF75AE2AC9488F007FDB3D /* Preview Assets.xcassets */,
+				B5B496622ACDAAE80084C962 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		B5FF75B92AC9494C007FDB3D /* View */ = {
+		B5B4966B2ACDAC130084C962 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B5FF75BC2AC94A06007FDB3D /* FlashView.swift */,
-				B5FF75A92AC9488E007FDB3D /* ContentView.swift */,
-				B5FF75B72AC9493F007FDB3D /* MoveCirvleView.swift */,
-				B5FF75BA2AC949CF007FDB3D /* VibrationView.swift */,
-				B5FF75BE2AC96DCA007FDB3D /* AccelerometerView.swift */,
+				B5B4965D2ACDAAE70084C962 /* ContentView.swift */,
+				B5B4966F2ACDB5BB0084C962 /* URLView.swift */,
+				B5B496712ACDC1F10084C962 /* PhoneView.swift */,
+				B5B496692ACDAC0E0084C962 /* PhotoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		B5FF75C22AC96EA6007FDB3D /* ViewModel */ = {
+		B5B4966E2ACDB2A50084C962 /* Picker */ = {
 			isa = PBXGroup;
 			children = (
-				B5FF75C02AC96E89007FDB3D /* AccelemometerViewModel.swift */,
+				B5B4966C2ACDB29A0084C962 /* ImagePicker.swift */,
 			);
-			path = ViewModel;
+			path = Picker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B5FF75A32AC9488E007FDB3D /* fourthLab */ = {
+		B5B496572ACDAAE70084C962 /* fifthLab */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5FF75B22AC9488F007FDB3D /* Build configuration list for PBXNativeTarget "fourthLab" */;
+			buildConfigurationList = B5B496662ACDAAE80084C962 /* Build configuration list for PBXNativeTarget "fifthLab" */;
 			buildPhases = (
-				B5FF75A02AC9488E007FDB3D /* Sources */,
-				B5FF75A12AC9488E007FDB3D /* Frameworks */,
-				B5FF75A22AC9488E007FDB3D /* Resources */,
+				B5B496542ACDAAE70084C962 /* Sources */,
+				B5B496552ACDAAE70084C962 /* Frameworks */,
+				B5B496562ACDAAE70084C962 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = fourthLab;
-			productName = fourthLab;
-			productReference = B5FF75A42AC9488E007FDB3D /* fourthLab.app */;
+			name = fifthLab;
+			productName = fifthLab;
+			productReference = B5B496582ACDAAE70084C962 /* fifthLab.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B5FF759C2AC9488E007FDB3D /* Project object */ = {
+		B5B496502ACDAAE70084C962 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					B5FF75A32AC9488E007FDB3D = {
+					B5B496572ACDAAE70084C962 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
-			buildConfigurationList = B5FF759F2AC9488E007FDB3D /* Build configuration list for PBXProject "fourthLab" */;
+			buildConfigurationList = B5B496532ACDAAE70084C962 /* Build configuration list for PBXProject "fifthLab" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -141,47 +138,46 @@
 				en,
 				Base,
 			);
-			mainGroup = B5FF759B2AC9488E007FDB3D;
-			productRefGroup = B5FF75A52AC9488E007FDB3D /* Products */;
+			mainGroup = B5B4964F2ACDAAE70084C962;
+			productRefGroup = B5B496592ACDAAE70084C962 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B5FF75A32AC9488E007FDB3D /* fourthLab */,
+				B5B496572ACDAAE70084C962 /* fifthLab */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B5FF75A22AC9488E007FDB3D /* Resources */ = {
+		B5B496562ACDAAE70084C962 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5FF75AF2AC9488F007FDB3D /* Preview Assets.xcassets in Resources */,
-				B5FF75AC2AC9488F007FDB3D /* Assets.xcassets in Resources */,
+				B5B496632ACDAAE80084C962 /* Preview Assets.xcassets in Resources */,
+				B5B496602ACDAAE80084C962 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B5FF75A02AC9488E007FDB3D /* Sources */ = {
+		B5B496542ACDAAE70084C962 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5FF75BF2AC96DCA007FDB3D /* AccelerometerView.swift in Sources */,
-				B5FF75BD2AC94A06007FDB3D /* FlashView.swift in Sources */,
-				B5FF75AA2AC9488E007FDB3D /* ContentView.swift in Sources */,
-				B5FF75B82AC9493F007FDB3D /* MoveCirvleView.swift in Sources */,
-				B5FF75C12AC96E89007FDB3D /* AccelemometerViewModel.swift in Sources */,
-				B5FF75A82AC9488E007FDB3D /* fourthLabApp.swift in Sources */,
-				B5FF75BB2AC949CF007FDB3D /* VibrationView.swift in Sources */,
+				B5B4966A2ACDAC0E0084C962 /* PhotoView.swift in Sources */,
+				B5B496722ACDC1F10084C962 /* PhoneView.swift in Sources */,
+				B5B4966D2ACDB29A0084C962 /* ImagePicker.swift in Sources */,
+				B5B4965E2ACDAAE70084C962 /* ContentView.swift in Sources */,
+				B5B496702ACDB5BB0084C962 /* URLView.swift in Sources */,
+				B5B4965C2ACDAAE70084C962 /* fifthLabApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		B5FF75B02AC9488F007FDB3D /* Debug */ = {
+		B5B496642ACDAAE80084C962 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,7 +240,7 @@
 			};
 			name = Debug;
 		};
-		B5FF75B12AC9488F007FDB3D /* Release */ = {
+		B5B496652ACDAAE80084C962 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -300,15 +296,14 @@
 			};
 			name = Release;
 		};
-		B5FF75B32AC9488F007FDB3D /* Debug */ = {
+		B5B496672ACDAAE80084C962 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"fourthLab/Preview Content\"";
-				DEVELOPMENT_TEAM = L4XDJUG5Z2;
+				DEVELOPMENT_ASSET_PATHS = "\"fifthLab/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -321,7 +316,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AndriiIzbash.fourthLab;
+				PRODUCT_BUNDLE_IDENTIFIER = AndriiIzbash.fifthLab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -329,15 +324,14 @@
 			};
 			name = Debug;
 		};
-		B5FF75B42AC9488F007FDB3D /* Release */ = {
+		B5B496682ACDAAE80084C962 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"fourthLab/Preview Content\"";
-				DEVELOPMENT_TEAM = L4XDJUG5Z2;
+				DEVELOPMENT_ASSET_PATHS = "\"fifthLab/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -350,7 +344,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AndriiIzbash.fourthLab;
+				PRODUCT_BUNDLE_IDENTIFIER = AndriiIzbash.fifthLab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -361,25 +355,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B5FF759F2AC9488E007FDB3D /* Build configuration list for PBXProject "fourthLab" */ = {
+		B5B496532ACDAAE70084C962 /* Build configuration list for PBXProject "fifthLab" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B5FF75B02AC9488F007FDB3D /* Debug */,
-				B5FF75B12AC9488F007FDB3D /* Release */,
+				B5B496642ACDAAE80084C962 /* Debug */,
+				B5B496652ACDAAE80084C962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5FF75B22AC9488F007FDB3D /* Build configuration list for PBXNativeTarget "fourthLab" */ = {
+		B5B496662ACDAAE80084C962 /* Build configuration list for PBXNativeTarget "fifthLab" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B5FF75B32AC9488F007FDB3D /* Debug */,
-				B5FF75B42AC9488F007FDB3D /* Release */,
+				B5B496672ACDAAE80084C962 /* Debug */,
+				B5B496682ACDAAE80084C962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B5FF759C2AC9488E007FDB3D /* Project object */;
+	rootObject = B5B496502ACDAAE70084C962 /* Project object */;
 }

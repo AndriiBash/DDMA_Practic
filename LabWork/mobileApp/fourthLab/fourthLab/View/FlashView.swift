@@ -139,6 +139,7 @@ struct FlashView: View
     }
 }
 
-#Preview {
+#Preview 
+{
     FlashView()
 }
