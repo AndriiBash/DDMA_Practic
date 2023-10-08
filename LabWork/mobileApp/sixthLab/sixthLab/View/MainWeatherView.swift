@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import WeatherKit
 
 struct MainWeatherView: View
 {
@@ -20,16 +19,6 @@ struct MainWeatherView: View
     @State private var humidity: Int = 0
     @State private var windSpeed:   Double = 0.0
     @State private var temperature: Double = 0.0
-    
-    @State private var countryFlags: [String: String] =
-    [
-        "FR": "🇫🇷",
-        "DE": "🇩🇪",
-        "GB": "🇬🇧",
-        "UA": "🇺🇦",
-        "NO": "🇳🇴",
-        "JP": "🇯🇵"
-    ]
     
     var body: some View
     {
@@ -83,9 +72,9 @@ struct MainWeatherView: View
                     VStack
                     {
                         
-                        if let flag = countryFlags[country]
+                        if country != ""
                         {
-                            Text("\(country)/\(cityStatic)\(flag)")
+                            Text("\(country)/\(cityStatic) \(getFlag(country: country))")
                                 .font(.title.bold())
                                 .padding(.top, 12)
                                 .padding(.horizontal)
@@ -141,13 +130,22 @@ struct MainWeatherView: View
                 )
     }
     
+    func getFlag(country: String) -> String
+    {
+        let base : UInt32 = 127397
+        var s = ""
+        for v in country.unicodeScalars
+        {
+            s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
+        }
+        return String(s)
+    }
+    
     func getCurrentWeather()
     {
         let urlstring = "https://api.openweathermap.org/data/2.5/weather?q="+cityWeather+"&appid=ffe6d300f48841172ae985a4d1f3c576"
         let url=URL(string: urlstring)!
         let request = URLRequest(url: url)
-        
-        
         
         let task=URLSession.shared.dataTask(with: request)
         { d,response,error in
