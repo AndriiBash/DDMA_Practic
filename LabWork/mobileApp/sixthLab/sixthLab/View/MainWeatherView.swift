@@ -12,18 +12,65 @@ struct MainWeatherView: View
     @State private var cityStatic = ""
     @State private var cityWeather = ""
     @State private var country = ""
-        
     @State private var mainRain = ""
     @State private var desctiptionRain = ""
     
-    @State private var humidity: Int = 0
+    @State private var humidity:    Int = 0
     @State private var windSpeed:   Double = 0.0
     @State private var temperature: Double = 0.0
+    
+    let layot = [GridItem(.adaptive(minimum: screen.width/2.4))]
     
     var body: some View
     {
         VStack
         {
+            ScrollView(showsIndicators: false)
+            {
+                Spacer()
+                
+                VStack
+                {
+                    Text(!country.isEmpty ? "\(country)/\(cityStatic) \(getFlag(country: country))" : "Почніть шукати місто")
+                        .font(.title2.bold())
+                        .padding(.vertical)
+                    
+                    if !country.isEmpty
+                    {
+                        VStack
+                        {
+                            LazyVGrid(columns: layot, spacing: 20)
+                            {
+                                WeatherInfoGrid(image: "thermometer.medium", title: "Температура", information: String(format: "%.2f °C", temperature - 273.15))
+                                WeatherInfoGrid(image: "humidity.fill", title: "Вологість",information: String(humidity) + "%")
+                                WeatherInfoGrid(image: "wind", title: "Швидкість вітру", information: String(format: "%.0f", windSpeed) + " м/с")
+                                WeatherInfoGrid(image: "aqi.low", title: "???", information: String(format: "%.0f", windSpeed) + "кг/с")
+                            }
+                            .padding(.vertical)
+                            .background(Color("Chernika"))
+                            .cornerRadius(14)
+                            .shadow(radius: 12)
+                        }//VStack with info
+                        
+                        Text("☁️ Взагалі: \(mainRain) [\(desctiptionRain)]")
+                            .padding(.top, 12)
+                            .padding(.bottom, 16)
+                            .font(.subheadline.bold())
+                    }
+                    
+                }//VStack
+                .frame(maxWidth: .infinity)
+                .background(Color("DeepIndigo"))
+                .foregroundColor(.white)
+                .font(.body.bold())
+                .cornerRadius(14)
+                
+                .padding(.top, 15)
+                .padding(.horizontal)
+                .shadow(radius: 14)
+            }//ScrollView
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
             VStack
             {
                 HStack
@@ -64,72 +111,21 @@ struct MainWeatherView: View
                 )
             }//VStack with TextField
             .padding(.horizontal, 12)
+            .padding(.bottom, 14)
             
-            ScrollView(showsIndicators: false)
-            {
-                VStack
-                {
-                    VStack
-                    {
-                        
-                        if country != ""
-                        {
-                            Text("\(country)/\(cityStatic) \(getFlag(country: country))")
-                                .font(.title.bold())
-                                .padding(.top, 12)
-                                .padding(.horizontal)
-                            
-                            Text("🌡 Температура: \(String(format: "%.2f °C", temperature - 273.15))")
-                                .padding(.top, 12)
-                                .padding(.horizontal)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                            Text("💦 Вологість: \(humidity)%")
-                                .padding(.top, 12)
-                                .padding(.horizontal)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-
-                            Text("🌀 Швидкість вітру: \(windSpeed) м/с")
-                                .padding(.top, 12)
-                                .padding(.horizontal)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                            Text("☁️ Взагалі: \(mainRain) [\(desctiptionRain)]")
-                                .padding(.top, 12)
-                                .padding(.bottom, 16)
-                                .padding(.horizontal)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                        else
-                        {
-                            Text("Почніть шукати місто")
-                                .font(.title2.bold())
-                                .padding(.vertical, 15)
-                        }
-                        
-                    }//VStack with info
-                    .foregroundColor(.white)
-                    .font(.body.bold())
-                    .frame(maxWidth: .infinity)
-                    .background(.black.opacity(0.15))
-                    .cornerRadius(14)
-                    .shadow(radius: 12)
-                }//VStack
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding()
-                
-            }//ScrollView
+            
         }//HStack
-        .padding(.top, 10)
+        .padding(.top, 12)
         .background(
                     LinearGradient(
-                        gradient: Gradient(colors: [Color("DeepRed"), Color("DeepPurple")]), // Задайте цвета градиента
-                        startPoint: .topLeading, // Начальная точка градиента
-                        endPoint: .bottomTrailing // Конечная точка градиента
+                        gradient: Gradient(colors: [Color("DeepRed"), Color("DeepPurple")]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
                     )
                 )
     }
     
+    // Geter flags from name emoju
     func getFlag(country: String) -> String
     {
         let base : UInt32 = 127397
@@ -141,6 +137,7 @@ struct MainWeatherView: View
         return String(s)
     }
     
+    // getter current info weather
     func getCurrentWeather()
     {
         let urlstring = "https://api.openweathermap.org/data/2.5/weather?q="+cityWeather+"&appid=ffe6d300f48841172ae985a4d1f3c576"
@@ -174,7 +171,7 @@ struct MainWeatherView: View
                     }
                     else
                     {
-                        // случай, когда 'weather' равен nil или не имеет ожидаемого типа
+                        // if 'weather' = nil
                     }
                   
                 }
