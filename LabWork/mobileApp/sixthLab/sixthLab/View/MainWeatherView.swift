@@ -19,6 +19,10 @@ struct MainWeatherView: View
     @State private var windSpeed:   Double = 0.0
     @State private var temperature: Double = 0.0
     
+    //@StateObject private var locationManager = LocationManager()
+    @StateObject private var locationManager = LocationManager()
+    
+    
     let layot = [GridItem(.adaptive(minimum: screen.width/2.4))]
     
     var body: some View
@@ -27,7 +31,7 @@ struct MainWeatherView: View
         {
             ScrollView(showsIndicators: false)
             {
-                Spacer()
+               // Spacer()
                 
                 VStack
                 {
@@ -48,7 +52,7 @@ struct MainWeatherView: View
                             }
                             .padding(.vertical)
                             .background(Color("Chernika"))
-                            .cornerRadius(14)
+                            .cornerRadius(12)
                             .shadow(radius: 12)
                         }//VStack with info
                         
@@ -63,8 +67,7 @@ struct MainWeatherView: View
                 .background(Color("DeepIndigo"))
                 .foregroundColor(.white)
                 .font(.body.bold())
-                .cornerRadius(14)
-                
+                .cornerRadius(12)
                 .padding(.top, 15)
                 .padding(.horizontal)
                 .shadow(radius: 14)
@@ -75,52 +78,73 @@ struct MainWeatherView: View
             {
                 HStack
                 {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.gray)
-                    TextField("Пошук міста", text: $cityWeather)
-                        .submitLabel(.done)
-                        .onSubmit
-                        {
-                            getCurrentWeather()
-                            print(cityWeather)
-                        }//onSubmit
-                    
-                    if !cityWeather.isEmpty
+                    HStack
                     {
-                        Button
-                        {
-                            withAnimation(Animation.easeInOut(duration: 0.5))
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+                        TextField("Пошук міста", text: $cityWeather)
+                            .submitLabel(.done)
+                            .onSubmit
                             {
-                                cityWeather = ""
-                                country = ""
-                            }
-                        }
-                        label:
+                                getCurrentWeather()
+                                print(cityWeather)
+                            }//onSubmit
+                        
+                        if !cityWeather.isEmpty
                         {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundColor(.gray)
-                        }//Button
-                    }//if with button
-                } //HStack
-                .padding(.horizontal, 6)
-                .padding(.vertical, 16)
-                .background(RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.white.opacity(0.9))
+                            Button
+                            {
+                                withAnimation(Animation.easeInOut(duration: 0.5))
+                                {
+                                    cityWeather = ""
+                                    country = ""
+                                }
+                            }
+                            label:
+                            {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.gray)
+                            }//Button
+                        }//if with button
+                        
+                        
+                    } //HStack
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 16)
+                    .background(RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.white.opacity(0.9))
+                        .shadow(radius: 12)
+                        .foregroundColor(Color.black)
+                    )
+                    Button
+                    {
+                        cityWeather = locationManager.userCity ?? ""
+                        getCurrentWeather()
+                    }
+                    label:
+                    {
+                        Image(systemName: "location.fill")
+                            .foregroundColor(Color.black)
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.horizontal, 17)
+                            .padding(.vertical, 17)
+                    }//Button for search user location
+                    .background(Color.white)
+                    .cornerRadius(100)
                     .shadow(radius: 12)
-                    .foregroundColor(Color.black)
-                )
+                    
+                }// HStack with TextField
             }//VStack with TextField
-            .padding(.horizontal, 12)
-            .padding(.bottom, 14)
-            
-            
+            .padding()
+            .background(.ultraThinMaterial)
+
         }//HStack
-        .padding(.top, 12)
+        //.padding(.top, 12)
         .background(
                     LinearGradient(
-                        gradient: Gradient(colors: [Color("DeepRed"), Color("DeepPurple")]),
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
+                        gradient: Gradient(colors: [Color("UpBlue"), Color("DownBlue")]),
+                        startPoint: .top,
+                        endPoint: .bottom
                     )
                 )
     }
@@ -171,6 +195,7 @@ struct MainWeatherView: View
                     }
                     else
                     {
+                        print("error parse")
                         // if 'weather' = nil
                     }
                   
@@ -190,3 +215,4 @@ struct MainWeatherView: View
 {
     MainWeatherView()
 }
+

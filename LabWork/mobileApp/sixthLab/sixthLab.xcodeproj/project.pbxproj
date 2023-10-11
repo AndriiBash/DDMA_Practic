@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B50C0B8A2AD456AE0095473C /* WeatherInfoGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50C0B892AD456AE0095473C /* WeatherInfoGrid.swift */; };
+		B51FB6742AD6C710004B2C65 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51FB6732AD6C710004B2C65 /* LocationManager.swift */; };
 		B554E4F92AD15B870012D4D5 /* sixthLabApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B554E4F82AD15B870012D4D5 /* sixthLabApp.swift */; };
 		B554E4FB2AD15B870012D4D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B554E4FA2AD15B870012D4D5 /* ContentView.swift */; };
 		B554E4FD2AD15B880012D4D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B554E4FC2AD15B880012D4D5 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		B50C0B892AD456AE0095473C /* WeatherInfoGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoGrid.swift; sourceTree = "<group>"; };
+		B51FB6732AD6C710004B2C65 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B554E4F52AD15B870012D4D5 /* sixthLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sixthLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B554E4F82AD15B870012D4D5 /* sixthLabApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sixthLabApp.swift; sourceTree = "<group>"; };
 		B554E4FA2AD15B870012D4D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +41,7 @@
 		B50C0B8B2AD457430095473C /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				B51FB6732AD6C710004B2C65 /* LocationManager.swift */,
 				B50C0B892AD456AE0095473C /* WeatherInfoGrid.swift */,
 			);
 			path = Component;
@@ -161,6 +164,7 @@
 			files = (
 				B554E4FB2AD15B870012D4D5 /* ContentView.swift in Sources */,
 				B554E4F92AD15B870012D4D5 /* sixthLabApp.swift in Sources */,
+				B51FB6742AD6C710004B2C65 /* LocationManager.swift in Sources */,
 				B55D0A822AD163F00022CD4A /* MainWeatherView.swift in Sources */,
 				B50C0B8A2AD456AE0095473C /* WeatherInfoGrid.swift in Sources */,
 			);
@@ -298,6 +302,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"sixthLab/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need this bro";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для визначення Вашого положення потрібно це дозволити";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -329,6 +335,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"sixthLab/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need this bro";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Для визначення Вашого положення потрібно це дозволити";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

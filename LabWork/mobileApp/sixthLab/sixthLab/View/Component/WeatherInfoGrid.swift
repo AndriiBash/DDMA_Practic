@@ -27,7 +27,8 @@ struct WeatherInfoGrid: View
             {
                 Image(systemName: image)
                     .resizable()
-                    .frame(maxWidth: 30, maxHeight: 30)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 35, maxHeight: 35)
                 
                 Text(information)
                     .bold()
