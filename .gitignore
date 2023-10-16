@@ -33,3 +33,6 @@
 
 # Mac files
 *.DS_Store
+
+#build dirs
+build*
