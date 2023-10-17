@@ -26,7 +26,11 @@
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QTableView" name="tableView"/>
+         <widget class="QTableView" name="tableView">
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -36,7 +40,11 @@
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="QTableView" name="tableView_2"/>
+         <widget class="QTableView" name="tableView_2">
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -46,7 +54,11 @@
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <widget class="QTableView" name="tableView_3"/>
+         <widget class="QTableView" name="tableView_3">
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -56,7 +68,11 @@
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
-         <widget class="QTableView" name="tableView_4"/>
+         <widget class="QTableView" name="tableView_4">
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -66,7 +82,11 @@
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
-         <widget class="QTableView" name="tableView_5"/>
+         <widget class="QTableView" name="tableView_5">
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -76,7 +96,11 @@
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
-         <widget class="QTableView" name="tableView_6"/>
+         <widget class="QTableView" name="tableView_6">
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -86,7 +110,11 @@
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
-         <widget class="QTableView" name="tableView_7"/>
+         <widget class="QTableView" name="tableView_7">
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -96,7 +124,11 @@
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_9">
         <item>
-         <widget class="QTableView" name="tableView_8"/>
+         <widget class="QTableView" name="tableView_8">
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -106,7 +138,11 @@
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_10">
         <item>
-         <widget class="QTableView" name="tableView_9"/>
+         <widget class="QTableView" name="tableView_9">
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -114,6 +150,29 @@
     </item>
    </layout>
   </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="AddRowAction"/>
+   <addaction name="DeleteRowAction"/>
+  </widget>
+  <action name="AddRowAction">
+   <property name="text">
+    <string>Додати запис</string>
+   </property>
+  </action>
+  <action name="DeleteRowAction">
+   <property name="text">
+    <string>Видалити запис</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

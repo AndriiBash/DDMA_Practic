@@ -10,12 +10,14 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableView>
+#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -23,6 +25,8 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *AddRowAction;
+    QAction *DeleteRowAction;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout;
     QTabWidget *tabWidget;
@@ -53,12 +57,17 @@ public:
     QWidget *tab_9;
     QHBoxLayout *horizontalLayout_10;
     QTableView *tableView_9;
+    QToolBar *toolBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(800, 600);
+        AddRowAction = new QAction(MainWindow);
+        AddRowAction->setObjectName("AddRowAction");
+        DeleteRowAction = new QAction(MainWindow);
+        DeleteRowAction->setObjectName("DeleteRowAction");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         horizontalLayout = new QHBoxLayout(centralwidget);
@@ -71,6 +80,7 @@ public:
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         tableView = new QTableView(tab);
         tableView->setObjectName("tableView");
+        tableView->setSortingEnabled(true);
 
         horizontalLayout_2->addWidget(tableView);
 
@@ -81,6 +91,7 @@ public:
         horizontalLayout_3->setObjectName("horizontalLayout_3");
         tableView_2 = new QTableView(tab_2);
         tableView_2->setObjectName("tableView_2");
+        tableView_2->setSortingEnabled(true);
 
         horizontalLayout_3->addWidget(tableView_2);
 
@@ -91,6 +102,7 @@ public:
         horizontalLayout_4->setObjectName("horizontalLayout_4");
         tableView_3 = new QTableView(tab_3);
         tableView_3->setObjectName("tableView_3");
+        tableView_3->setSortingEnabled(true);
 
         horizontalLayout_4->addWidget(tableView_3);
 
@@ -101,6 +113,7 @@ public:
         horizontalLayout_5->setObjectName("horizontalLayout_5");
         tableView_4 = new QTableView(tab_4);
         tableView_4->setObjectName("tableView_4");
+        tableView_4->setSortingEnabled(true);
 
         horizontalLayout_5->addWidget(tableView_4);
 
@@ -111,6 +124,7 @@ public:
         horizontalLayout_6->setObjectName("horizontalLayout_6");
         tableView_5 = new QTableView(tab_5);
         tableView_5->setObjectName("tableView_5");
+        tableView_5->setSortingEnabled(true);
 
         horizontalLayout_6->addWidget(tableView_5);
 
@@ -121,6 +135,7 @@ public:
         horizontalLayout_7->setObjectName("horizontalLayout_7");
         tableView_6 = new QTableView(tab_6);
         tableView_6->setObjectName("tableView_6");
+        tableView_6->setSortingEnabled(true);
 
         horizontalLayout_7->addWidget(tableView_6);
 
@@ -131,6 +146,7 @@ public:
         horizontalLayout_8->setObjectName("horizontalLayout_8");
         tableView_7 = new QTableView(tab_7);
         tableView_7->setObjectName("tableView_7");
+        tableView_7->setSortingEnabled(true);
 
         horizontalLayout_8->addWidget(tableView_7);
 
@@ -141,6 +157,7 @@ public:
         horizontalLayout_9->setObjectName("horizontalLayout_9");
         tableView_8 = new QTableView(tab_8);
         tableView_8->setObjectName("tableView_8");
+        tableView_8->setSortingEnabled(true);
 
         horizontalLayout_9->addWidget(tableView_8);
 
@@ -151,6 +168,7 @@ public:
         horizontalLayout_10->setObjectName("horizontalLayout_10");
         tableView_9 = new QTableView(tab_9);
         tableView_9->setObjectName("tableView_9");
+        tableView_9->setSortingEnabled(true);
 
         horizontalLayout_10->addWidget(tableView_9);
 
@@ -159,6 +177,12 @@ public:
         horizontalLayout->addWidget(tabWidget);
 
         MainWindow->setCentralWidget(centralwidget);
+        toolBar = new QToolBar(MainWindow);
+        toolBar->setObjectName("toolBar");
+        MainWindow->addToolBar(Qt::LeftToolBarArea, toolBar);
+
+        toolBar->addAction(AddRowAction);
+        toolBar->addAction(DeleteRowAction);
 
         retranslateUi(MainWindow);
 
@@ -171,6 +195,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        AddRowAction->setText(QCoreApplication::translate("MainWindow", "\320\224\320\276\320\264\320\260\321\202\320\270 \320\267\320\260\320\277\320\270\321\201", nullptr));
+        DeleteRowAction->setText(QCoreApplication::translate("MainWindow", "\320\222\320\270\320\264\320\260\320\273\320\270\321\202\320\270 \320\267\320\260\320\277\320\270\321\201", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "\320\227\320\260\320\262\320\264\320\260\320\275\320\275\321\217", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "\320\222\320\270\320\272\320\276\320\275\321\203\321\224 \320\267\320\260\320\262\320\264\320\260\320\275\320\275\321\217", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("MainWindow", "\320\236\320\261\320\273\320\260\320\264\320\275\320\260\320\275\320\275\321\217", nullptr));
@@ -180,6 +206,7 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_7), QCoreApplication::translate("MainWindow", "\320\237\321\226\320\264\320\262\320\270\321\211\321\203\321\224 \320\272\320\262\320\260\320\273\321\226\321\204\321\226\320\272\320\260\321\206\321\226\321\216", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_8), QCoreApplication::translate("MainWindow", "\320\232\320\262\320\260\320\273\321\226\321\204\321\226\320\272\320\260\321\206\321\226\321\217", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_9), QCoreApplication::translate("MainWindow", "\320\242\320\270\320\277 \320\275\320\260\320\262\321\207\320\260\320\275\320\275\321\217", nullptr));
+        toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
     } // retranslateUi
 
 };

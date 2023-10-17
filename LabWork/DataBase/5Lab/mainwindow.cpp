@@ -9,13 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-
-    /*
-    foreach (QString driver, QSqlDatabase::drivers ())
-    {
-        qDebug() << driver;
-    }
-    */
+    setWindowTitle("Моя база даних");
 
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./equipmentDB.db");
@@ -134,3 +128,75 @@ void MainWindow::on_tabWidget_currentChanged(int index)
     }
 }
 
+
+void MainWindow::on_AddRowAction_triggered()
+{
+    tableModel->insertRow(tableModel->rowCount());
+}
+
+
+void MainWindow::on_DeleteRowAction_triggered()
+{
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "", "Ви дійсно хочете видалити цю запис?",
+                                  QMessageBox::Yes|QMessageBox::No);
+    if (reply == QMessageBox::Yes)
+    {
+        tableModel->removeRow(row);
+        tableModel->select();
+    }
+}
+
+
+void MainWindow::on_tableView_clicked(const QModelIndex &index)
+{
+    row = index.row();
+}
+
+
+void MainWindow::on_tableView_2_clicked(const QModelIndex &index)
+{
+    row = index.row();
+}
+
+
+void MainWindow::on_tableView_3_clicked(const QModelIndex &index)
+{
+    row = index.row();
+}
+
+
+void MainWindow::on_tableView_4_clicked(const QModelIndex &index)
+{
+    row = index.row();
+}
+
+
+void MainWindow::on_tableView_5_clicked(const QModelIndex &index)
+{
+    row = index.row();
+}
+
+
+void MainWindow::on_tableView_6_clicked(const QModelIndex &index)
+{
+    row = index.row();
+}
+
+
+void MainWindow::on_tableView_7_clicked(const QModelIndex &index)
+{
+    row = index.row();
+}
+
+
+void MainWindow::on_tableView_8_clicked(const QModelIndex &index)
+{
+    row = index.row();
+}
+
+
+void MainWindow::on_tableView_9_clicked(const QModelIndex &index)
+{
+    row = index.row();
+}
