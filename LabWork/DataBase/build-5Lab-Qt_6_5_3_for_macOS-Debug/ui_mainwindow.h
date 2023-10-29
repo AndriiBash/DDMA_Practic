@@ -12,12 +12,14 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableView>
-#include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -57,7 +59,16 @@ public:
     QWidget *tab_9;
     QHBoxLayout *horizontalLayout_10;
     QTableView *tableView_9;
-    QToolBar *toolBar;
+    QWidget *tab_10;
+    QVBoxLayout *verticalLayout;
+    QFrame *frame_2;
+    QHBoxLayout *horizontalLayout_12;
+    QLabel *label;
+    QLabel *label_2;
+    QFrame *frame;
+    QHBoxLayout *horizontalLayout_11;
+    QTableView *tableView_10;
+    QTableView *tableView_11;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -74,6 +85,7 @@ public:
         horizontalLayout->setObjectName("horizontalLayout");
         tabWidget = new QTabWidget(centralwidget);
         tabWidget->setObjectName("tabWidget");
+        tabWidget->setTabShape(QTabWidget::Rounded);
         tab = new QWidget();
         tab->setObjectName("tab");
         horizontalLayout_2 = new QHBoxLayout(tab);
@@ -173,16 +185,64 @@ public:
         horizontalLayout_10->addWidget(tableView_9);
 
         tabWidget->addTab(tab_9, QString());
+        tab_10 = new QWidget();
+        tab_10->setObjectName("tab_10");
+        verticalLayout = new QVBoxLayout(tab_10);
+        verticalLayout->setObjectName("verticalLayout");
+        frame_2 = new QFrame(tab_10);
+        frame_2->setObjectName("frame_2");
+        frame_2->setStyleSheet(QString::fromUtf8("QFrame#frame_2\n"
+"{\n"
+"	border: 0px;\n"
+"}"));
+        frame_2->setFrameShape(QFrame::StyledPanel);
+        frame_2->setFrameShadow(QFrame::Raised);
+        horizontalLayout_12 = new QHBoxLayout(frame_2);
+        horizontalLayout_12->setObjectName("horizontalLayout_12");
+        horizontalLayout_12->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(frame_2);
+        label->setObjectName("label");
+
+        horizontalLayout_12->addWidget(label);
+
+        label_2 = new QLabel(frame_2);
+        label_2->setObjectName("label_2");
+
+        horizontalLayout_12->addWidget(label_2);
+
+
+        verticalLayout->addWidget(frame_2);
+
+        frame = new QFrame(tab_10);
+        frame->setObjectName("frame");
+        frame->setStyleSheet(QString::fromUtf8("QFrame#frame\n"
+"{\n"
+"	border: 0px;\n"
+"}\n"
+""));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        horizontalLayout_11 = new QHBoxLayout(frame);
+        horizontalLayout_11->setObjectName("horizontalLayout_11");
+        horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
+        tableView_10 = new QTableView(frame);
+        tableView_10->setObjectName("tableView_10");
+
+        horizontalLayout_11->addWidget(tableView_10);
+
+        tableView_11 = new QTableView(frame);
+        tableView_11->setObjectName("tableView_11");
+
+        horizontalLayout_11->addWidget(tableView_11);
+
+
+        verticalLayout->addWidget(frame);
+
+        tabWidget->addTab(tab_10, QString());
 
         horizontalLayout->addWidget(tabWidget);
 
         MainWindow->setCentralWidget(centralwidget);
-        toolBar = new QToolBar(MainWindow);
-        toolBar->setObjectName("toolBar");
-        MainWindow->addToolBar(Qt::LeftToolBarArea, toolBar);
-
-        toolBar->addAction(AddRowAction);
-        toolBar->addAction(DeleteRowAction);
 
         retranslateUi(MainWindow);
 
@@ -206,7 +266,9 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_7), QCoreApplication::translate("MainWindow", "\320\237\321\226\320\264\320\262\320\270\321\211\321\203\321\224 \320\272\320\262\320\260\320\273\321\226\321\204\321\226\320\272\320\260\321\206\321\226\321\216", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_8), QCoreApplication::translate("MainWindow", "\320\232\320\262\320\260\320\273\321\226\321\204\321\226\320\272\320\260\321\206\321\226\321\217", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_9), QCoreApplication::translate("MainWindow", "\320\242\320\270\320\277 \320\275\320\260\320\262\321\207\320\260\320\275\320\275\321\217", nullptr));
-        toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:700;\">\320\237\321\200\320\260\321\206\321\226\320\262\320\275\320\270\320\272\320\270</span></p></body></html>", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:700;\">\320\222\320\270\320\272\320\276\321\200\320\270\321\201\321\202\320\276\320\262\321\203\321\224 </span></p></body></html>", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_10), QCoreApplication::translate("MainWindow", "\320\227\320\262'\321\217\320\267\320\275\321\226\321\201\321\202\321\214", nullptr));
     } // retranslateUi
 
 };

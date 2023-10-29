@@ -24,6 +24,8 @@ MainWindow::MainWindow(QWidget *parent)
     query = new QSqlQuery(db);
     //query->exec("your sql-query :-)");
 
+    secondTableModel = new QSqlTableModel(this, db);
+
     tableModel = new QSqlTableModel(this, db);
     tableModel->setTable("Завдання");
     tableModel->select();
@@ -122,6 +124,18 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_9->resizeColumnsToContents();
         ui->tableView_9->horizontalHeader()->setStretchLastSection(true);
     }
+    else if(index == 9)
+    {
+        tableModel->setTable("Працівник");
+        tableModel->select();
+
+        secondTableModel->setTable("Використовує");
+        secondTableModel->select();
+
+        ui->tableView_10->setModel(tableModel);
+        ui->tableView_11->setModel(secondTableModel);
+
+    }
     else
     {
         QMessageBox::information(this,"","Помилка завантаження таблиці");
@@ -129,74 +143,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
 }
 
 
-void MainWindow::on_AddRowAction_triggered()
+void MainWindow::on_tableView_10_clicked(const QModelIndex &index)
 {
-    tableModel->insertRow(tableModel->rowCount());
+    secondTableModel->setFilter("Табельний_номер_працівника = " + QString::number(index.row() + 1) + "");
 }
 
-
-void MainWindow::on_DeleteRowAction_triggered()
-{
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "", "Ви дійсно хочете видалити цю запис?",
-                                  QMessageBox::Yes|QMessageBox::No);
-    if (reply == QMessageBox::Yes)
-    {
-        tableModel->removeRow(row);
-        tableModel->select();
-    }
-}
-
-
-void MainWindow::on_tableView_clicked(const QModelIndex &index)
-{
-    row = index.row();
-}
-
-
-void MainWindow::on_tableView_2_clicked(const QModelIndex &index)
-{
-    row = index.row();
-}
-
-
-void MainWindow::on_tableView_3_clicked(const QModelIndex &index)
-{
-    row = index.row();
-}
-
-
-void MainWindow::on_tableView_4_clicked(const QModelIndex &index)
-{
-    row = index.row();
-}
-
-
-void MainWindow::on_tableView_5_clicked(const QModelIndex &index)
-{
-    row = index.row();
-}
-
-
-void MainWindow::on_tableView_6_clicked(const QModelIndex &index)
-{
-    row = index.row();
-}
-
-
-void MainWindow::on_tableView_7_clicked(const QModelIndex &index)
-{
-    row = index.row();
-}
-
-
-void MainWindow::on_tableView_8_clicked(const QModelIndex &index)
-{
-    row = index.row();
-}
-
-
-void MainWindow::on_tableView_9_clicked(const QModelIndex &index)
-{
-    row = index.row();
-}
