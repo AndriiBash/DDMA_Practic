@@ -57,6 +57,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         tableModel->setTable("Виконує_завдання");
         tableModel->select();
 
+        tableModel->insertRow(tableModel->rowCount());
+
         ui->tableView_2->setModel(tableModel);
         ui->tableView_2->resizeColumnsToContents();
         ui->tableView_2->horizontalHeader()->setStretchLastSection(true);
