@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include <QMessageBox>
+#include <QInputDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -25,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
     //query->exec("your sql-query :-)");
 
     secondTableModel = new QSqlTableModel(this, db);
+
+    queryModel = new QSqlQueryModel();
 
     tableModel = new QSqlTableModel(this, db);
     tableModel->setTable("Завдання");
@@ -108,7 +111,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_7->resizeColumnsToContents();
         ui->tableView_7->horizontalHeader()->setStretchLastSection(true);
     }
-    else if(index == 7)
+    else if (index == 7)
     {
         tableModel->setTable("Кваліфікація");
         tableModel->select();
@@ -117,7 +120,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_8->resizeColumnsToContents();
         ui->tableView_8->horizontalHeader()->setStretchLastSection(true);
     }
-    else if(index == 8)
+    else if (index == 8)
     {
         tableModel->setTable("Тип_навчання");
         tableModel->select();
@@ -126,7 +129,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_9->resizeColumnsToContents();
         ui->tableView_9->horizontalHeader()->setStretchLastSection(true);
     }
-    else if(index == 9)
+    else if (index == 9)
     {
         tableModel->setTable("Працівник");
         tableModel->select();
@@ -138,6 +141,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_11->setModel(secondTableModel);
 
     }
+    else if (index == 10) {}
     else
     {
         QMessageBox::information(this,"","Помилка завантаження таблиці");
@@ -148,5 +152,59 @@ void MainWindow::on_tabWidget_currentChanged(int index)
 void MainWindow::on_tableView_10_clicked(const QModelIndex &index)
 {
     secondTableModel->setFilter("Табельний_номер_працівника = " + QString::number(index.row() + 1) + "");
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    queryModel->setQuery("SELECT Завдання.*, Виконує_завдання.Кількість_годин_роботи "
+                         "FROM Завдання, Виконує_завдання "
+                         "WHERE Виконує_завдання.Кількість_годин_роботи = (SELECT MIN(Виконує_завдання.Кількість_годин_роботи)"
+                         "                                                 FROM Виконує_завдання) "
+                         "AND Завдання.Номер_завдання = Виконує_завдання.Номер_виконання");
+
+    ui->sqlTableView->setModel(queryModel);
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QStringList items;
+
+    if (query->exec("SELECT DISTINCT Працівник.Посада"
+                    " FROM Працівник"))
+    {
+        while (query->next())
+        {
+            QString position = query->value(0).toString();
+            items.append(position);
+        }
+    }
+
+    bool ok;
+    QString selectedItem = QInputDialog::getItem(nullptr, "2 запит", "Оберіть посаду:", items, 0, false, &ok);
+
+    if (ok)
+    {
+        queryModel->setQuery("SELECT Працівник.*, COUNT(Використовує.Табельний_номер_працівника) AS 'Кількість використання обладнання' "
+                             "FROM Працівник "
+                             "LEFT JOIN Використовує ON Працівник.Табельний_номер = Використовує.Табельний_номер_працівника "
+                             "WHERE Працівник.Посада = '" + selectedItem + "' "
+                             "GROUP BY Використовує.Табельний_номер_працівника");
+
+        ui->sqlTableView->setModel(queryModel);
+    }
+}
+
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    queryModel->setQuery("SELECT Працівник.*, Підвищує_кваліфікацію.Результат_навчання "
+                         "FROM Працівник, Підвищує_кваліфікацію "
+                         "WHERE Працівник.Табельний_номер = Підвищує_кваліфікацію.Табельний_номер_працівника "
+                         "AND Підвищує_кваліфікацію.Результат_навчання = 'Не пройшов'");
+
+    ui->sqlTableView->setModel(queryModel);
+
 }
 

@@ -10,15 +10,16 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableView>
+#include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -27,8 +28,6 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *AddRowAction;
-    QAction *DeleteRowAction;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout;
     QTabWidget *tabWidget;
@@ -69,16 +68,21 @@ public:
     QHBoxLayout *horizontalLayout_11;
     QTableView *tableView_10;
     QTableView *tableView_11;
+    QWidget *tab_11;
+    QVBoxLayout *verticalLayout_2;
+    QTableView *sqlTableView;
+    QFrame *frame_3;
+    QHBoxLayout *horizontalLayout_13;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
+    QToolBar *toolBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(800, 600);
-        AddRowAction = new QAction(MainWindow);
-        AddRowAction->setObjectName("AddRowAction");
-        DeleteRowAction = new QAction(MainWindow);
-        DeleteRowAction->setObjectName("DeleteRowAction");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         horizontalLayout = new QHBoxLayout(centralwidget);
@@ -239,14 +243,58 @@ public:
         verticalLayout->addWidget(frame);
 
         tabWidget->addTab(tab_10, QString());
+        tab_11 = new QWidget();
+        tab_11->setObjectName("tab_11");
+        verticalLayout_2 = new QVBoxLayout(tab_11);
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        sqlTableView = new QTableView(tab_11);
+        sqlTableView->setObjectName("sqlTableView");
+        sqlTableView->setSortingEnabled(true);
+
+        verticalLayout_2->addWidget(sqlTableView);
+
+        frame_3 = new QFrame(tab_11);
+        frame_3->setObjectName("frame_3");
+        frame_3->setStyleSheet(QString::fromUtf8("QFrame\n"
+"{\n"
+"	border: 0px;\n"
+"\n"
+"}"));
+        frame_3->setFrameShape(QFrame::StyledPanel);
+        frame_3->setFrameShadow(QFrame::Raised);
+        horizontalLayout_13 = new QHBoxLayout(frame_3);
+        horizontalLayout_13->setObjectName("horizontalLayout_13");
+        pushButton = new QPushButton(frame_3);
+        pushButton->setObjectName("pushButton");
+        pushButton->setStyleSheet(QString::fromUtf8(""));
+
+        horizontalLayout_13->addWidget(pushButton);
+
+        pushButton_2 = new QPushButton(frame_3);
+        pushButton_2->setObjectName("pushButton_2");
+
+        horizontalLayout_13->addWidget(pushButton_2);
+
+        pushButton_3 = new QPushButton(frame_3);
+        pushButton_3->setObjectName("pushButton_3");
+
+        horizontalLayout_13->addWidget(pushButton_3);
+
+
+        verticalLayout_2->addWidget(frame_3);
+
+        tabWidget->addTab(tab_11, QString());
 
         horizontalLayout->addWidget(tabWidget);
 
         MainWindow->setCentralWidget(centralwidget);
+        toolBar = new QToolBar(MainWindow);
+        toolBar->setObjectName("toolBar");
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(10);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -255,8 +303,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        AddRowAction->setText(QCoreApplication::translate("MainWindow", "\320\224\320\276\320\264\320\260\321\202\320\270 \320\267\320\260\320\277\320\270\321\201", nullptr));
-        DeleteRowAction->setText(QCoreApplication::translate("MainWindow", "\320\222\320\270\320\264\320\260\320\273\320\270\321\202\320\270 \320\267\320\260\320\277\320\270\321\201", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "\320\227\320\260\320\262\320\264\320\260\320\275\320\275\321\217", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "\320\222\320\270\320\272\320\276\320\275\321\203\321\224 \320\267\320\260\320\262\320\264\320\260\320\275\320\275\321\217", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("MainWindow", "\320\236\320\261\320\273\320\260\320\264\320\275\320\260\320\275\320\275\321\217", nullptr));
@@ -269,6 +315,11 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:700;\">\320\237\321\200\320\260\321\206\321\226\320\262\320\275\320\270\320\272\320\270</span></p></body></html>", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:700;\">\320\222\320\270\320\272\320\276\321\200\320\270\321\201\321\202\320\276\320\262\321\203\321\224 </span></p></body></html>", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_10), QCoreApplication::translate("MainWindow", "\320\227\320\262'\321\217\320\267\320\275\321\226\321\201\321\202\321\214", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "\320\237\320\265\321\200\321\210\320\270\320\271 \320\267\320\260\320\277\320\270\321\202", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("MainWindow", "\320\224\321\200\321\203\320\263\320\270\320\271 \320\267\320\260\320\277\320\270\321\202", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("MainWindow", "\320\242\321\200\320\265\321\202\321\226\320\271 \320\267\320\260\320\277\320\270\321\202", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_11), QCoreApplication::translate("MainWindow", "SQL \320\267\320\260\320\277\320\270\321\202\320\270", nullptr));
+        toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
     } // retranslateUi
 
 };

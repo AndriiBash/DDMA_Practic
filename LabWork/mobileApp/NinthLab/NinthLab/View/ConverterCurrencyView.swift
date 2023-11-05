@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ConverterCurrency: View
+struct ConverterCurrencyView: View
 {
     @Binding var closeStatus: Bool
     @Binding var buyDollar: Double
@@ -108,7 +108,7 @@ struct ConverterCurrency_Previews: PreviewProvider
     
     static var previews: some View
     {
-        ConverterCurrency(closeStatus: $closeStatus, buyDollar: $buyDollar, buyEuro: $buyEuro)
+        ConverterCurrencyView(closeStatus: $closeStatus, buyDollar: $buyDollar, buyEuro: $buyEuro)
     }
     
 }

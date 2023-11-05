@@ -11,7 +11,6 @@ struct ContentView: View
 {
     @State var dollar = Currency(nameCurrency: "Грн/Доллар", sellCurrency: 1, buyCurrence: 1, urlImage: "dollarsign.circle.fill", colorImage: .green)
     @State var euro = Currency(nameCurrency: "Грн/Євро", sellCurrency: 2, buyCurrence: 2, urlImage: "eurosign.circle.fill", colorImage: .orange)
-    @State private var isConverterPresent: Bool = false
 
     var body: some View
     {
@@ -60,7 +59,7 @@ struct ContentView: View
             .navigationBarTitle("Курс від PrivatBank", displayMode: .inline)
             .sheet(isPresented: $isConverterPresent)
             {
-                ConverterCurrency(closeStatus: $isConverterPresent, buyDollar: $dollar.buyCurrence, buyEuro: $euro.buyCurrence)
+                ConverterCurrencyView(closeStatus: $isConverterPresent, buyDollar: $dollar.buyCurrence, buyEuro: $euro.buyCurrence)
             }
 
 

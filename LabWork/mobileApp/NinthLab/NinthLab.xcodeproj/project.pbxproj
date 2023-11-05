@@ -13,7 +13,7 @@
 		B52379B42AF65FE800200FDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52379B32AF65FE800200FDF /* Preview Assets.xcassets */; };
 		B52379BB2AF660E300200FDF /* CardMoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52379BA2AF660E300200FDF /* CardMoneyView.swift */; };
 		B52379BD2AF66CA600200FDF /* StructCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52379BC2AF66CA600200FDF /* StructCurrency.swift */; };
-		B52379C12AF6946800200FDF /* ConverterCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52379C02AF6946800200FDF /* ConverterCurrency.swift */; };
+		B52379C12AF6946800200FDF /* ConverterCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52379C02AF6946800200FDF /* ConverterCurrencyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +24,7 @@
 		B52379B32AF65FE800200FDF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B52379BA2AF660E300200FDF /* CardMoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMoneyView.swift; sourceTree = "<group>"; };
 		B52379BC2AF66CA600200FDF /* StructCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructCurrency.swift; sourceTree = "<group>"; };
-		B52379C02AF6946800200FDF /* ConverterCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterCurrency.swift; sourceTree = "<group>"; };
+		B52379C02AF6946800200FDF /* ConverterCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterCurrencyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,7 @@
 			children = (
 				B52379BA2AF660E300200FDF /* CardMoneyView.swift */,
 				B52379AE2AF65FE600200FDF /* ContentView.swift */,
-				B52379C02AF6946800200FDF /* ConverterCurrency.swift */,
+				B52379C02AF6946800200FDF /* ConverterCurrencyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B52379C12AF6946800200FDF /* ConverterCurrency.swift in Sources */,
+				B52379C12AF6946800200FDF /* ConverterCurrencyView.swift in Sources */,
 				B52379AF2AF65FE600200FDF /* ContentView.swift in Sources */,
 				B52379AD2AF65FE600200FDF /* NinthLabApp.swift in Sources */,
 				B52379BB2AF660E300200FDF /* CardMoneyView.swift in Sources */,
