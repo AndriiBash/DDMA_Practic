@@ -142,6 +142,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
 
     }
     else if (index == 10) {}
+    else if (index == 11) {}
     else
     {
         QMessageBox::information(this,"","Помилка завантаження таблиці");
@@ -208,6 +209,43 @@ void MainWindow::on_pushButton_3_clicked()
                          "AND Підвищує_кваліфікацію.Результат_навчання = 'Не пройшов'");
 
     ui->sqlTableView->setModel(queryModel);
+
+}
+
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    queryModel->setQuery("SELECT * "
+                "FROM Працівник");
+
+    ui->tableView_12->setModel(queryModel);
+}
+
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    bool ok;
+
+    int selectedItem = QInputDialog::getInt(nullptr, "Пошук посади за табельним номером",
+     "Оберіть табельний номер:", 1, 1, ui->tableView_12->model()->rowCount(), 1, &ok);
+
+    if (ok)
+    {
+
+        query->exec("SELECT Працівник.Посада "
+                    "FROM Працівник "
+                    "WHERE Працівник.Табельний_номер = " + QString::number(selectedItem));
+
+        if (query->next())
+        {
+            QString result = query->value(0).toString();
+            QMessageBox::information(this, "", "Посада працівника : " + result);
+        }
+        else
+        {
+            QMessageBox::information(this, "", "Немає результатів пошуку");
+        }
+    }
 
 }
 
