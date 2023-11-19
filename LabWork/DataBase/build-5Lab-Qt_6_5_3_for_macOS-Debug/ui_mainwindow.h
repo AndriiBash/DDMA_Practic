@@ -10,15 +10,19 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableView>
+#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -28,6 +32,8 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *AddNew;
+    QAction *DeleteRow;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout;
     QTabWidget *tabWidget;
@@ -83,13 +89,33 @@ public:
     QHBoxLayout *horizontalLayout_14;
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
+    QPushButton *pushButton_6;
+    QWidget *tab_13;
+    QVBoxLayout *verticalLayout_3;
+    QTableWidget *tableWidget;
+    QTextEdit *textEdit;
+    QFrame *frame_5;
+    QHBoxLayout *horizontalLayout_15;
+    QLabel *label_3;
+    QLineEdit *lineEdit;
+    QLineEdit *lineEdit_2;
+    QLineEdit *lineEdit_3;
+    QFrame *frame_6;
+    QHBoxLayout *horizontalLayout_16;
+    QPushButton *pushButton_7;
+    QPushButton *pushButton_8;
     QToolBar *toolBar;
+    QToolBar *toolBar_2;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(800, 600);
+        AddNew = new QAction(MainWindow);
+        AddNew->setObjectName("AddNew");
+        DeleteRow = new QAction(MainWindow);
+        DeleteRow->setObjectName("DeleteRow");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         horizontalLayout = new QHBoxLayout(centralwidget);
@@ -321,10 +347,87 @@ public:
 
         horizontalLayout_14->addWidget(pushButton_5);
 
+        pushButton_6 = new QPushButton(frame_4);
+        pushButton_6->setObjectName("pushButton_6");
+
+        horizontalLayout_14->addWidget(pushButton_6);
+
 
         verticalLayout_4->addWidget(frame_4);
 
         tabWidget->addTab(tab_12, QString());
+        tab_13 = new QWidget();
+        tab_13->setObjectName("tab_13");
+        verticalLayout_3 = new QVBoxLayout(tab_13);
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        tableWidget = new QTableWidget(tab_13);
+        tableWidget->setObjectName("tableWidget");
+
+        verticalLayout_3->addWidget(tableWidget);
+
+        textEdit = new QTextEdit(tab_13);
+        textEdit->setObjectName("textEdit");
+        textEdit->setReadOnly(true);
+
+        verticalLayout_3->addWidget(textEdit);
+
+        frame_5 = new QFrame(tab_13);
+        frame_5->setObjectName("frame_5");
+        frame_5->setStyleSheet(QString::fromUtf8("QFrame\n"
+"{\n"
+"border: 0px;\n"
+"}"));
+        frame_5->setFrameShape(QFrame::StyledPanel);
+        frame_5->setFrameShadow(QFrame::Raised);
+        horizontalLayout_15 = new QHBoxLayout(frame_5);
+        horizontalLayout_15->setObjectName("horizontalLayout_15");
+        label_3 = new QLabel(frame_5);
+        label_3->setObjectName("label_3");
+
+        horizontalLayout_15->addWidget(label_3);
+
+        lineEdit = new QLineEdit(frame_5);
+        lineEdit->setObjectName("lineEdit");
+
+        horizontalLayout_15->addWidget(lineEdit);
+
+        lineEdit_2 = new QLineEdit(frame_5);
+        lineEdit_2->setObjectName("lineEdit_2");
+
+        horizontalLayout_15->addWidget(lineEdit_2);
+
+        lineEdit_3 = new QLineEdit(frame_5);
+        lineEdit_3->setObjectName("lineEdit_3");
+
+        horizontalLayout_15->addWidget(lineEdit_3);
+
+
+        verticalLayout_3->addWidget(frame_5);
+
+        frame_6 = new QFrame(tab_13);
+        frame_6->setObjectName("frame_6");
+        frame_6->setStyleSheet(QString::fromUtf8("QFrame\n"
+"{\n"
+" border: 0px;\n"
+"}"));
+        frame_6->setFrameShape(QFrame::StyledPanel);
+        frame_6->setFrameShadow(QFrame::Raised);
+        horizontalLayout_16 = new QHBoxLayout(frame_6);
+        horizontalLayout_16->setObjectName("horizontalLayout_16");
+        pushButton_7 = new QPushButton(frame_6);
+        pushButton_7->setObjectName("pushButton_7");
+
+        horizontalLayout_16->addWidget(pushButton_7);
+
+        pushButton_8 = new QPushButton(frame_6);
+        pushButton_8->setObjectName("pushButton_8");
+
+        horizontalLayout_16->addWidget(pushButton_8);
+
+
+        verticalLayout_3->addWidget(frame_6);
+
+        tabWidget->addTab(tab_13, QString());
 
         horizontalLayout->addWidget(tabWidget);
 
@@ -332,10 +435,16 @@ public:
         toolBar = new QToolBar(MainWindow);
         toolBar->setObjectName("toolBar");
         MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
+        toolBar_2 = new QToolBar(MainWindow);
+        toolBar_2->setObjectName("toolBar_2");
+        MainWindow->addToolBar(Qt::TopToolBarArea, toolBar_2);
+
+        toolBar_2->addAction(AddNew);
+        toolBar_2->addAction(DeleteRow);
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(11);
+        tabWidget->setCurrentIndex(12);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -344,6 +453,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        AddNew->setText(QCoreApplication::translate("MainWindow", "\320\224\320\276\320\264\320\260\321\202\320\270 \320\267\320\260\320\277\320\270\321\201", nullptr));
+        DeleteRow->setText(QCoreApplication::translate("MainWindow", "\320\222\320\270\320\264\320\260\320\273\320\270\321\202\320\270 \320\267\320\260\320\277\320\270\321\201", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "\320\227\320\260\320\262\320\264\320\260\320\275\320\275\321\217", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "\320\222\320\270\320\272\320\276\320\275\321\203\321\224 \320\267\320\260\320\262\320\264\320\260\320\275\320\275\321\217", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("MainWindow", "\320\236\320\261\320\273\320\260\320\264\320\275\320\260\320\275\320\275\321\217", nullptr));
@@ -362,8 +473,17 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_11), QCoreApplication::translate("MainWindow", "SQL \320\267\320\260\320\277\320\270\321\202\320\270", nullptr));
         pushButton_4->setText(QCoreApplication::translate("MainWindow", "\320\227\320\260\320\262\320\260\320\275\321\202\320\260\320\266\320\270\321\202\320\270 \321\202\320\260\320\261\320\273\320\270\321\206\321\216", nullptr));
         pushButton_5->setText(QCoreApplication::translate("MainWindow", "\320\237\320\276\321\210\321\203\320\272 \320\277\320\276\321\201\320\260\320\264\320\270 \320\277\321\200\320\260\321\206\321\226\320\262\320\275\320\270\320\272\320\260 \320\267\320\260 ID", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("MainWindow", "\320\241\320\276\321\200\321\202\321\203\320\262\320\260\321\202\320\270 \320\267\320\260 \321\200\321\226\320\272\320\276\320\274 \320\275\320\260\321\200\320\276\320\264\320\266\320\265\320\275\320\275\321\217", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_12), QCoreApplication::translate("MainWindow", "SqlQueryTable", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:700;\">\320\224\320\273\321\217 Where</span></p></body></html>", nullptr));
+        lineEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "\320\235\320\260\320\267\320\262\320\260 \321\226\320\275\321\201\321\202\321\200\321\203\320\274\320\265\320\275\321\202\320\260", nullptr));
+        lineEdit_2->setPlaceholderText(QCoreApplication::translate("MainWindow", "\320\242\320\270\320\277 \321\226\320\275\321\201\321\202\321\200\321\203\320\274\320\265\320\275\321\202\320\260", nullptr));
+        lineEdit_3->setPlaceholderText(QCoreApplication::translate("MainWindow", "\320\236\320\277\320\270\321\201 \321\226\320\275\321\201\321\202\321\200\321\203\320\274\320\265\320\275\321\202\320\260", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("MainWindow", "\320\241\320\276\321\200\321\202\321\203\320\262\320\260\321\202\320\270", nullptr));
+        pushButton_8->setText(QCoreApplication::translate("MainWindow", "\320\236\320\275\320\276\320\262\320\270\321\202\320\270", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_13), QCoreApplication::translate("MainWindow", "\320\241\320\276\321\200\321\202\321\203\320\262\320\260\320\275\320\275\321\217", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
+        toolBar_2->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar_2", nullptr));
     } // retranslateUi
 
 };

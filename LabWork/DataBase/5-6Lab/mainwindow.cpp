@@ -3,6 +3,9 @@
 
 #include <QMessageBox>
 #include <QInputDialog>
+#include <QSortFilterProxyModel>
+#include <QSqlRecord>
+#include <QComboBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -36,6 +39,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableView->setModel(tableModel);
     ui->tableView->resizeColumnsToContents();
     ui->tableView->horizontalHeader()->setStretchLastSection(true);
+
+    showFormAdd = new AddRowForm();
+
+    connect(showFormAdd, &AddRowForm::signalSetData, this, &MainWindow::slotSetData);
 }
 
 MainWindow::~MainWindow()
@@ -143,6 +150,10 @@ void MainWindow::on_tabWidget_currentChanged(int index)
     }
     else if (index == 10) {}
     else if (index == 11) {}
+    else if (index == 12)
+    {
+        on_pushButton_8_clicked();
+    }
     else
     {
         QMessageBox::information(this,"","Помилка завантаження таблиці");
@@ -248,4 +259,225 @@ void MainWindow::on_pushButton_5_clicked()
     }
 
 }
+
+
+void MainWindow::on_AddNew_triggered()
+{
+    showFormAdd->show();
+}
+
+
+void MainWindow::on_DeleteRow_triggered()
+{
+    bool ok;
+    int value = QInputDialog::getInt(nullptr, "Видалення працівника", "Оберіть табельний номер за яким ви хочете видалити працівника:",
+                                         0, 0, tableModel->rowCount() - 1, 1, &ok);
+
+    if (ok)
+    {
+        tableModel->removeRow(value);
+        tableModel->select();
+    }
+}
+
+
+void MainWindow::slotSetData(QString lastName, QString name, QString fatherName, int year, QString post)
+{
+    int rowCount = tableModel->rowCount();
+
+    tableModel->insertRow(rowCount);
+
+    QModelIndex index;
+
+    index = tableModel->index(rowCount, 0); // Индекс для столбца "Табельний_номер"
+    tableModel->setData(index, rowCount);
+
+    index = tableModel->index(rowCount, 1); // Индекс для столбца "Прізвище"
+    tableModel->setData(index, lastName);
+
+    index = tableModel->index(rowCount, 2); // Индекс для столбца "Ім_я"
+    tableModel->setData(index, name);
+
+    index = tableModel->index(rowCount, 3); // Индекс для столбца "По_батькові"
+    tableModel->setData(index, fatherName);
+
+    index = tableModel->index(rowCount, 4); // Индекс для столбца "Рік_народження"
+    tableModel->setData(index, year);
+
+    index = tableModel->index(rowCount, 5); // Индекс для столбца "Посада"
+    tableModel->setData(index, post);
+}
+
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(this);
+
+    proxyModel->setSourceModel(queryModel);
+    proxyModel->setSortCaseSensitivity(Qt::CaseInsensitive);
+    proxyModel->setSortRole(Qt::DisplayRole);
+
+    proxyModel->sort(4, Qt::AscendingOrder);  // Сортування за зростанням
+
+    ui->tableView_12->setModel(proxyModel);
+}
+
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    queryModel->setQuery("SELECT Інструмент.* "
+                         "FROM Інструмент");
+
+    int rowCount = queryModel->rowCount();
+    int columnCount = queryModel->columnCount();
+
+    ui->tableWidget->setRowCount(rowCount);
+    ui->tableWidget->setColumnCount(columnCount);
+
+    QStringList headerLabels;
+    for (int col = 0; col < columnCount; ++col)
+    {
+        headerLabels << queryModel->headerData(col, Qt::Horizontal).toString();
+    }
+    ui->tableWidget->setHorizontalHeaderLabels(headerLabels);
+    for (int row = 0; row < rowCount; ++row)
+    {
+        for (int col = 0; col < columnCount; ++col)
+        {
+            QModelIndex index = queryModel->index(row, col);
+            QString value = queryModel->data(index).toString();
+            QTableWidgetItem *item = new QTableWidgetItem(value);
+            ui->tableWidget->setItem(row, col, item);
+        }
+    }
+
+
+    //for column's style's
+    for (int i = 0; i < queryModel->rowCount(); i++)
+    {
+        QComboBox *combo = new QComboBox;
+        combo->addItem("Ручний");
+        combo->addItem("Електричний");
+        combo->addItem("Механичний");
+
+        combo->setCurrentText(queryModel->data(queryModel->index(i, 2)).toString());
+        ui->tableWidget->setCellWidget(i, 2, combo);
+
+        QTableWidgetItem *item = new QTableWidgetItem(" ");
+        ui->tableWidget->setItem(i, 2, item);
+    }
+
+    for (int i = 0; i < ui->tableWidget->rowCount(); i++)
+    {
+        QTableWidgetItem *item = ui->tableWidget->item(i, 3);
+
+        if (item)
+        {
+            item->setBackground(QColor(Qt::green));
+            item->setForeground(QColor(Qt::red));
+        }
+    }
+
+    for (int i = 0; i < ui->tableWidget->rowCount(); i++)
+    {
+
+        QTableWidgetItem *item = ui->tableWidget->item(i, 0);
+
+        if (item and i % 2 == 0)
+        {
+            item->setBackground(QColor(Qt::gray));
+        }
+        else if(item and i % 2 != 0)
+        {
+            item->setBackground(QColor(Qt::darkGray));
+        }
+    }
+}
+
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    int countParametr = 0;
+
+    QString SQLString;
+    SQLString = "SELECT Інструмент.* FROM Інструмент WHERE ";
+
+    if (!ui->lineEdit->text().isEmpty())
+    {
+        SQLString += "Інструмент.Назва_інструмента = '" + ui->lineEdit->text() + "' ";
+        countParametr++;
+    }
+
+    if (!ui->lineEdit_2->text().isEmpty())
+    {
+        if (countParametr != 0)
+        {
+            SQLString += " AND ";
+        }
+
+        SQLString += "Інструмент.Тип_інструмента = '" + ui->lineEdit_2->text() + "' ";
+        countParametr++;
+    }
+
+    if (!ui->lineEdit_3->text().isEmpty())
+    {
+        if (countParametr != 0)
+        {
+            SQLString += " AND ";
+        }
+
+        SQLString += "Інструмент.Опис_інструмента LIKE '%" + ui->lineEdit_3->text() + "%' ";
+        countParametr++;
+    }
+
+    queryModel->setQuery(SQLString);
+    int rowCount = queryModel->rowCount();
+    int columnCount = queryModel->columnCount();
+
+    ui->tableWidget->setRowCount(rowCount);
+    ui->tableWidget->setColumnCount(columnCount);
+
+    // Встановлення заголовків стовпців
+    QStringList headerLabels;
+    for (int col = 0; col < columnCount; ++col)
+    {
+        headerLabels << queryModel->headerData(col, Qt::Horizontal).toString();
+    }
+    ui->tableWidget->setHorizontalHeaderLabels(headerLabels);
+
+    // Заповнення QTableWidget результатами запиту
+    for (int row = 0; row < rowCount; ++row)
+    {
+        for (int col = 0; col < columnCount; ++col)
+        {
+            QModelIndex index = queryModel->index(row, col);
+            QString value = queryModel->data(index).toString();
+            QTableWidgetItem *item = new QTableWidgetItem(value);
+            ui->tableWidget->setItem(row, col, item);
+        }
+    }
+
+
+    ui->textEdit->clear();
+
+    for (int row = 0; row < rowCount; ++row)
+    {
+        QString rowText;
+        for (int col = 0; col < columnCount; ++col)
+        {
+            QModelIndex index = queryModel->index(row, col);
+            QString value = queryModel->data(index).toString();
+
+            if (col == 0)
+            {
+                rowText += ("(" + value + ") - ");
+            }
+            else
+            {
+                rowText += value + "; ";
+            }
+        }
+    }
+}
+
 

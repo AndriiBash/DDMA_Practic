@@ -8,6 +8,8 @@
 #include <QSqlQueryModel>
 #include <QDebug>
 
+#include "addrowform.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -35,6 +37,16 @@ private slots:
 
     void on_pushButton_5_clicked();
 
+    void on_AddNew_triggered();
+
+    void on_DeleteRow_triggered();
+
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_7_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -44,7 +56,13 @@ private:
     QSqlTableModel *secondTableModel;
     QSqlQueryModel *queryModel;
 
-
     int row;
+
+    AddRowForm *showFormAdd;
+
+public slots:
+    void slotSetData(QString lastName, QString name, QString fatherName, int year, QString post);
+
+
 };
 #endif // MAINWINDOW_H
