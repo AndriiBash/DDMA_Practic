@@ -34,6 +34,7 @@ class Ui_MainWindow
 public:
     QAction *AddNew;
     QAction *DeleteRow;
+    QAction *report;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout;
     QTabWidget *tabWidget;
@@ -116,6 +117,8 @@ public:
         AddNew->setObjectName("AddNew");
         DeleteRow = new QAction(MainWindow);
         DeleteRow->setObjectName("DeleteRow");
+        report = new QAction(MainWindow);
+        report->setObjectName("report");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         horizontalLayout = new QHBoxLayout(centralwidget);
@@ -441,6 +444,7 @@ public:
 
         toolBar_2->addAction(AddNew);
         toolBar_2->addAction(DeleteRow);
+        toolBar_2->addAction(report);
 
         retranslateUi(MainWindow);
 
@@ -455,6 +459,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         AddNew->setText(QCoreApplication::translate("MainWindow", "\320\224\320\276\320\264\320\260\321\202\320\270 \320\267\320\260\320\277\320\270\321\201", nullptr));
         DeleteRow->setText(QCoreApplication::translate("MainWindow", "\320\222\320\270\320\264\320\260\320\273\320\270\321\202\320\270 \320\267\320\260\320\277\320\270\321\201", nullptr));
+        report->setText(QCoreApplication::translate("MainWindow", "\320\222\320\270\320\272\320\273\320\270\320\272\320\260\321\202\320\270 \320\267\320\262\321\226\321\202", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("MainWindow", "\320\227\320\260\320\262\320\264\320\260\320\275\320\275\321\217", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("MainWindow", "\320\222\320\270\320\272\320\276\320\275\321\203\321\224 \320\267\320\260\320\262\320\264\320\260\320\275\320\275\321\217", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("MainWindow", "\320\236\320\261\320\273\320\260\320\264\320\275\320\260\320\275\320\275\321\217", nullptr));

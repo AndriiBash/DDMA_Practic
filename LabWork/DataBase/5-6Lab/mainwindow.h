@@ -47,6 +47,12 @@ private slots:
 
     void on_pushButton_7_clicked();
 
+    void printDocumentToPDF(const QString path, const QString html);
+
+    QString getHeaderHTML();
+
+    void on_report_triggered();
+
 private:
     Ui::MainWindow *ui;
 
@@ -57,6 +63,8 @@ private:
     QSqlQueryModel *queryModel;
 
     int row;
+
+    bool isTableChoose;
 
     AddRowForm *showFormAdd;
 

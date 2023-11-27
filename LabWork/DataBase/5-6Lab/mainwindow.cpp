@@ -6,6 +6,9 @@
 #include <QSortFilterProxyModel>
 #include <QSqlRecord>
 #include <QComboBox>
+#include <QPrinter>
+#include <QDesktopServices>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -43,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
     showFormAdd = new AddRowForm();
 
     connect(showFormAdd, &AddRowForm::signalSetData, this, &MainWindow::slotSetData);
+
 }
 
 MainWindow::~MainWindow()
@@ -61,6 +65,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView->setModel(tableModel);
         ui->tableView->resizeColumnsToContents();
         ui->tableView->horizontalHeader()->setStretchLastSection(true);
+
+        isTableChoose = true;
     }
     else if (index == 1)
     {
@@ -72,6 +78,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_2->setModel(tableModel);
         ui->tableView_2->resizeColumnsToContents();
         ui->tableView_2->horizontalHeader()->setStretchLastSection(true);
+
+        isTableChoose = true;
     }
     else if (index == 2)
     {
@@ -81,6 +89,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_3->setModel(tableModel);
         ui->tableView_3->resizeColumnsToContents();
         ui->tableView_3->horizontalHeader()->setStretchLastSection(true);
+
+        isTableChoose = true;
     }
     else if (index == 3)
     {
@@ -90,6 +100,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_4->setModel(tableModel);
         ui->tableView_4->resizeColumnsToContents();
         ui->tableView_4->horizontalHeader()->setStretchLastSection(true);
+
+        isTableChoose = true;
     }
     else if (index == 4)
     {
@@ -99,6 +111,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_5->setModel(tableModel);
         ui->tableView_5->resizeColumnsToContents();
         ui->tableView_5->horizontalHeader()->setStretchLastSection(true);
+
+        isTableChoose = true;
     }
     else if (index == 5)
     {
@@ -108,6 +122,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_6->setModel(tableModel);
         ui->tableView_6->resizeColumnsToContents();
         ui->tableView_6->horizontalHeader()->setStretchLastSection(true);
+
+        isTableChoose = true;
     }
     else if (index == 6)
     {
@@ -117,6 +133,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_7->setModel(tableModel);
         ui->tableView_7->resizeColumnsToContents();
         ui->tableView_7->horizontalHeader()->setStretchLastSection(true);
+
+        isTableChoose = true;
     }
     else if (index == 7)
     {
@@ -126,6 +144,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_8->setModel(tableModel);
         ui->tableView_8->resizeColumnsToContents();
         ui->tableView_8->horizontalHeader()->setStretchLastSection(true);
+
+        isTableChoose = true;
     }
     else if (index == 8)
     {
@@ -135,6 +155,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_9->setModel(tableModel);
         ui->tableView_9->resizeColumnsToContents();
         ui->tableView_9->horizontalHeader()->setStretchLastSection(true);
+
+        isTableChoose = true;
     }
     else if (index == 9)
     {
@@ -147,16 +169,30 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         ui->tableView_10->setModel(tableModel);
         ui->tableView_11->setModel(secondTableModel);
 
+        isTableChoose = false;
+
     }
-    else if (index == 10) {}
-    else if (index == 11) {}
+    else if (index == 10)
+    {
+        isTableChoose = false;
+    }
+    else if (index == 11)
+    {
+        isTableChoose = false;
+    }
     else if (index == 12)
     {
         on_pushButton_8_clicked();
+        isTableChoose = false;
+    }
+    else if (index == 13)
+    {
+        isTableChoose = false;
     }
     else
     {
         QMessageBox::information(this,"","Помилка завантаження таблиці");
+        isTableChoose = false;
     }
 }
 
@@ -289,22 +325,22 @@ void MainWindow::slotSetData(QString lastName, QString name, QString fatherName,
 
     QModelIndex index;
 
-    index = tableModel->index(rowCount, 0); // Индекс для столбца "Табельний_номер"
+    index = tableModel->index(rowCount, 0);
     tableModel->setData(index, rowCount);
 
-    index = tableModel->index(rowCount, 1); // Индекс для столбца "Прізвище"
+    index = tableModel->index(rowCount, 1);
     tableModel->setData(index, lastName);
 
-    index = tableModel->index(rowCount, 2); // Индекс для столбца "Ім_я"
+    index = tableModel->index(rowCount, 2);
     tableModel->setData(index, name);
 
-    index = tableModel->index(rowCount, 3); // Индекс для столбца "По_батькові"
+    index = tableModel->index(rowCount, 3);
     tableModel->setData(index, fatherName);
 
-    index = tableModel->index(rowCount, 4); // Индекс для столбца "Рік_народження"
+    index = tableModel->index(rowCount, 4);
     tableModel->setData(index, year);
 
-    index = tableModel->index(rowCount, 5); // Индекс для столбца "Посада"
+    index = tableModel->index(rowCount, 5);
     tableModel->setData(index, post);
 }
 
@@ -326,7 +362,8 @@ void MainWindow::on_pushButton_6_clicked()
 void MainWindow::on_pushButton_8_clicked()
 {
     queryModel->setQuery("SELECT Інструмент.* "
-                         "FROM Інструмент");
+                         "FROM Інструмент "
+                         "ORDER BY Назва_інструмента ASC");
 
     int rowCount = queryModel->rowCount();
     int columnCount = queryModel->columnCount();
@@ -400,7 +437,9 @@ void MainWindow::on_pushButton_7_clicked()
     int countParametr = 0;
 
     QString SQLString;
-    SQLString = "SELECT Інструмент.* FROM Інструмент WHERE ";
+    SQLString = "SELECT Інструмент.* "
+                "FROM Інструмент "
+                "WHERE ";
 
     if (!ui->lineEdit->text().isEmpty())
     {
@@ -480,4 +519,106 @@ void MainWindow::on_pushButton_7_clicked()
     }
 }
 
+void MainWindow::printDocumentToPDF(const QString path, const QString html)
+{
+    QTextDocument *document = new QTextDocument();
+    document->setHtml(html);
+
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setColorMode(QPrinter::Color);
+    printer.setResolution(666);
+    printer.setPageSize(QPageSize(QPageSize::A4));
+    printer.setPageMargins(QMarginsF(5, 5, 5, 5), QPageLayout::Millimeter);
+    printer.setOutputFileName(path);
+
+    document->setPageSize(QSizeF(920, 1300));
+    document->print(&printer);
+
+    QDesktopServices::openUrl(QUrl("file://" + path, QUrl::TolerantMode));
+
+}
+
+QString MainWindow::getHeaderHTML()
+{
+    QString htmlHeader;
+
+    htmlHeader = "<!DOCTYPE html>\n"
+                 "<html>\n"
+                 "<head>\n"
+                 "<style>"
+                 "table {\n width: 100%;\n padding-top: 120px;\n}\n"
+                 "table, th, td {\n"
+                 "  border:1px solid #e8e8e8;\n"
+                 "  border-collapse: collapse;\n"
+                 "  padding: 3px;\n"
+                 "  font-size: 12px;\n"
+                 "  font-family: -apple-system, BlinkMacSystemFont, sans-serif;\n"
+                 "  background-color: white;\n"
+                 "  padding-top: 6px;\n"
+                 "  padding-bottom: 6px;\n}\n"
+                 "th {\n    color: white;\n"
+                 "  background-color: #0e4870;\n"
+                 "  text-align: left;\n}\n"
+                 "td.la {\n background-color: #f2f2f2;\n}\n"
+                 "td.info {\n   border: 0px;\n  background-color: #e1e1e1;\n}\n"
+                 "h1, h2, h3 ,h4{\n font-family: -apple-system, BlinkMacSystemFont, sans-serif\n}\n"
+                 "#transpert {\ncolor: white;\n}\n"
+                 "</style>\n"
+                 "<title>Звіт</title>\n</head>\n";
+
+    return htmlHeader;
+}
+
+
+
+void MainWindow::on_report_triggered()
+{
+    if (isTableChoose)
+    {
+        QString pathToSave = QFileDialog::getSaveFileName(nullptr,
+                                                          tr("Збереження звіту"),
+                                                          "/Users/" + qgetenv("USER") + "/Desktop");
+        if (!pathToSave.isEmpty())
+        {
+            QString textHTML = getHeaderHTML();
+            textHTML += "<h2 align='center'>Звіт</h2>\n<table ALIGN = 'center'>\n<p2 id='transpert'>f</p2><tr>";
+
+
+            for (int i = 0; i < tableModel->columnCount(); ++i)
+            {
+                textHTML += "   <th>" + tableModel->headerData(i, Qt::Horizontal ).toString() +"</th>\n";
+            }
+
+            textHTML += "</tr>\n";
+
+            for (int i = 0; i < tableModel->rowCount(); ++i)
+            {
+                textHTML += "<tr>\n";
+
+                for (int j = 0; j < tableModel->columnCount(); ++j)
+                {
+                    if (i % 2 not_eq 0)
+                    {
+                        textHTML += "   <td class='la'>" + tableModel->index(i,j).data().toString() + "</td>\n";
+                    }
+                    else
+                    {
+                        textHTML += "   <td>" + tableModel->index(i,j).data().toString() + "</td>\n";
+                    }
+                }
+                textHTML += "</tr>\n";
+            }
+            textHTML+= "</tbody></table>";
+
+            printDocumentToPDF(pathToSave + ".pdf", textHTML);
+
+            QMessageBox::information(this,"","Звіт успішно збережено!");
+        }
+    }
+    else
+    {
+        QMessageBox::information(this,"","Відкрийте сторінку тільки з таблицями!");
+    }
+}
 

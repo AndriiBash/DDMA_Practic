@@ -466,6 +466,7 @@ border: 0px;
    </attribute>
    <addaction name="AddNew"/>
    <addaction name="DeleteRow"/>
+   <addaction name="report"/>
   </widget>
   <action name="AddNew">
    <property name="text">
@@ -475,6 +476,11 @@ border: 0px;
   <action name="DeleteRow">
    <property name="text">
     <string>Видалити запис</string>
+   </property>
+  </action>
+  <action name="report">
+   <property name="text">
+    <string>Викликати звіт</string>
    </property>
   </action>
  </widget>
