@@ -390,6 +390,7 @@ void MainWindow::on_pushButton_8_clicked()
 
 
     //for column's style's
+
     for (int i = 0; i < queryModel->rowCount(); i++)
     {
         QComboBox *combo = new QComboBox;
@@ -402,33 +403,80 @@ void MainWindow::on_pushButton_8_clicked()
 
         QTableWidgetItem *item = new QTableWidgetItem(" ");
         ui->tableWidget->setItem(i, 2, item);
+
+        // Додаємо обробник події для кожного комбо-бокса
+        connect(combo, &QComboBox::currentIndexChanged, [=](int index)
+        {
+            // Отримуємо вибране значення комбо-бокса
+            QString selectedValue = combo->itemText(index);
+
+            for (int j = 0; j < ui->tableWidget->columnCount(); j++)
+            {
+                // Змінюємо колір рядка в залежності від вибраного значення
+                QTableWidgetItem *item = ui->tableWidget->item(i, j);
+                if (item != nullptr)
+                {
+                    QColor color;
+
+                    if (selectedValue == "Ручний")
+                    {
+                        color = Qt::red;
+                    }
+                    else if (selectedValue == "Електричний")
+                    {
+                        color = Qt::green;
+                    }
+                    else if (selectedValue == "Механичний")
+                    {
+                        color = Qt::yellow;
+                    }
+
+                    item->setBackground(color);
+                }
+            }
+
+        });
     }
 
+    // окрашуємо комірки які існують
     for (int i = 0; i < ui->tableWidget->rowCount(); i++)
     {
-        QTableWidgetItem *item = ui->tableWidget->item(i, 3);
-
-        if (item)
+        for (int j = 0; j < ui->tableWidget->columnCount(); j++)
         {
-            item->setBackground(QColor(Qt::green));
-            item->setForeground(QColor(Qt::red));
+            QTableWidgetItem *item = ui->tableWidget->item(i, j);
+            if (item != nullptr)
+            {
+                // Отримуємо комбо-бокс з відповідної клітинки, та робимо каст у QComboBox, бо за замовчанням cellWidget повертає тип QWidget*
+                QComboBox *combo = qobject_cast<QComboBox*>(ui->tableWidget->cellWidget(i, 2));
+
+                if (combo != nullptr)
+                {
+                    // Отримуємо вибране значення комбо-бокса
+                    QString selectedValue = combo->currentText();
+
+                    QColor color;
+
+                    // Визначаємо колір відповідно до вибраного значення комбо-бокса
+                    if (selectedValue == "Ручний")
+                    {
+                        color = Qt::red;
+                    }
+                    else if (selectedValue == "Електричний")
+                    {
+                        color = Qt::green;
+                    }
+                    else if (selectedValue == "Механичний")
+                    {
+                        color = Qt::yellow;
+                    }
+
+                    item->setBackground(color);
+                }
+            }
         }
     }
 
-    for (int i = 0; i < ui->tableWidget->rowCount(); i++)
-    {
 
-        QTableWidgetItem *item = ui->tableWidget->item(i, 0);
-
-        if (item and i % 2 == 0)
-        {
-            item->setBackground(QColor(Qt::gray));
-        }
-        else if(item and i % 2 != 0)
-        {
-            item->setBackground(QColor(Qt::darkGray));
-        }
-    }
 }
 
 
@@ -536,7 +584,6 @@ void MainWindow::printDocumentToPDF(const QString path, const QString html)
     document->print(&printer);
 
     QDesktopServices::openUrl(QUrl("file://" + path, QUrl::TolerantMode));
-
 }
 
 QString MainWindow::getHeaderHTML()
@@ -612,8 +659,6 @@ void MainWindow::on_report_triggered()
             textHTML+= "</tbody></table>";
 
             printDocumentToPDF(pathToSave + ".pdf", textHTML);
-
-            QMessageBox::information(this,"","Звіт успішно збережено!");
         }
     }
     else
