@@ -34,8 +34,8 @@ int main(int argc, const char * argv[])
     cout << "ID MainThread : " << this_thread::get_id() << endl;
     
     // create thread
-    thread mainThread(threadCalculation);
-    mainThread.join();
+    thread secondTheard(threadCalculation);
+    secondTheard.join();
     
     return 0;
 }
