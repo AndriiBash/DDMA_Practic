@@ -52,8 +52,8 @@ void threadCalculation(int start, int end)
     
     
     {
-        std::lock_guard<std::mutex> lock(mutex);
-        std::cout << "Neighbor child thread [" << this_thread::get_id() << "] finished." << std::endl;
+        lock_guard<std::mutex> lock(mutex);
+        cout << "Neighbor child thread [" << this_thread::get_id() << "] finished." << std::endl;
         neighborsFinished = true;
     }
     
