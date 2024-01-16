@@ -15,10 +15,13 @@ typedef double T1;
 typedef int T2;
 typedef long T3;
 
+// typedef for the function pointer
+typedef T1* (*CalculateExprFunc)(T2*, T3*);
+
 T1* calculateExpr(T2 *p2, T3 *p3)
 {
     return new T1(tan(pow(*p2, 2)) * (*p3 / 3.0));
-} // func calculateExpr -> T1
+} // func calculateExpr -> T1*
 
 int main(int argc, const char * argv[])
 {
@@ -34,8 +37,10 @@ int main(int argc, const char * argv[])
     T2 *p2 = &valueT2;
     T3 *p3 = &valueT3;
     
-    T1 *result = calculateExpr(p2, p3);
-    
+    // pointer on func
+    CalculateExprFunc funcPtr = &calculateExpr;
+    T1* result = funcPtr(p2, p3);
+
     cout << endl << "result calculate : " << *result << endl;
     cout << "value p2 : " << *p2 << endl;
     cout << "address p2 : " << p2 << endl;
