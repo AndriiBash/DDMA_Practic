@@ -10,76 +10,66 @@
 #include <mutex>
 #include <condition_variable>
 #include <cmath>
-#include <vector>
-#include <string>
-#include <sstream>
-#include <semaphore.h>
 
 #define hStart 0
 #define hEnd   10
 #define hA     0.5
+#define NUM_THREADS 5
 
 using namespace std;
 
 mutex outputMutex;
 condition_variable cv;
 bool neighborsFinished = false;
-vector<string> buffer;
-sem_t bufferSemaphore;
 
-void threadCalculation(int start, int end)
+void threadCalculation(int start, int end, int threadNum)
 {
-    unique_lock<mutex> lock(outputMutex, defer_lock);
+    unique_lock<std::mutex> lock(outputMutex);
+    cv.wait(lock);  // wait signal
 
-    cout << "ID Child thread : " << this_thread::get_id() << endl;
+    cout << "ID Child thread " << threadNum << " : " << std::this_thread::get_id() << std::endl;
+
     this_thread::sleep_for(chrono::milliseconds(200));
 
-    lock.lock();
+    static bool neighborsFinished = false;
     if (!neighborsFinished)
     {
-        buffer.push_back("\t x \t y ");
+        cout << "\t x \t y " << std::endl;
         neighborsFinished = true;
     }
-    lock.unlock();
 
     for (int i = start; i < end; i++)
     {
-        lock.lock();
-        cout << "\t " << i << "\t " << sqrt(hA * pow(i, 3)) << endl;
-        lock.unlock();
-
+        cout << "\t " << i << "\t " << sqrt(hA * pow(i, 3)) << std::endl;
         this_thread::sleep_for(chrono::milliseconds(200));
     }
 
-    lock_guard<mutex> outputLock(outputMutex);
-    cout << "Neighbor child thread [" << this_thread::get_id() << "] finished." << endl;
-
-    // Signal the event that the thread has finished
-    sem_post(&bufferSemaphore);
+    cout << "Neighbor child thread [" << threadNum << "] finished." << endl;
 }
 
 int main(int argc, const char *argv[])
 {
     cout << "ID MainThread : " << this_thread::get_id() << endl;
 
-    int mid = (hEnd + hStart) / 2;
+    vector<thread> threads;
+    int range = (hEnd - hStart) / NUM_THREADS;
 
-    sem_init(&bufferSemaphore, 0, 0);  // Initialization of the semaphore
-
-    thread firstThread(threadCalculation, hStart, mid);
-    thread secondTheard(threadCalculation, mid, hEnd);
-
+    for (int i = 0; i < NUM_THREADS; ++i)
     {
-        unique_lock<mutex> lock(outputMutex);
-        cv.wait(lock, [] { return neighborsFinished; });
+        int start = hStart + i * range;
+        int end = (i == NUM_THREADS - 1) ? hEnd : start + range;
+
+        threads.emplace_back(threadCalculation, start, end, i + 1);
     }
 
-    sem_wait(&bufferSemaphore);  // Instead of waiting for an event, we wait for the semaphore
+    this_thread::sleep_for(chrono::milliseconds(200));
 
-    firstThread.join();
-    secondTheard.join();
+    cv.notify_all();  // Send signal for start
 
-    sem_destroy(&bufferSemaphore);  // Destroy the semaphore
+    for (auto &th : threads)
+    {
+        th.join();
+    }
 
     return 0;
 }
