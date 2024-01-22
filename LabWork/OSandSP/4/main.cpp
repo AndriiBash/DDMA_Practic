@@ -52,8 +52,7 @@ void threadCalculation(int start, int end, int threadNum, double *pBuf)
     {
         cout << "\t " << i << "\t " << sqrt(0.5 * pow(i, 3)) << endl;
         
-        //pBuf[i] = threadNum;
-        pBuf[i] = static_cast<double>(sqrt(0.5 * pow(i, 3)));//sqrt(0.5 * pow(i, 3)));
+        pBuf[i] = static_cast<double>(sqrt(0.5 * pow(i, 3)));
 
         this_thread::sleep_for(chrono::milliseconds(200));
     }
