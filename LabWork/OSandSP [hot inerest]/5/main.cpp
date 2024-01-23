@@ -134,7 +134,7 @@ int main()
     // MARK: - Example channel work
     // Create channel for send and get data
     
-    cout << endl << "For an example of how processes work, we will send the data obtained during the calculations from the parent process, and adding a message to the child process at the end, and we will output it" << endl << endl;
+    cout << endl << "For an example of how the processes work, we will send the data obtained during the calculations that are written to the shared memory, and for the example we will calculate another value, which we will make fake, from the parent process, and at the end we will add a message to the child process and output it" << endl << endl;
     
     int channel[2];
     
