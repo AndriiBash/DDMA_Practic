@@ -13,235 +13,297 @@ struct apartment
 {
     string owner;
     int number;
-    
+
     // constructor
     apartment(const string& ownerName, int flatNumber) : owner(ownerName), number(flatNumber) {}
-};// struct apartment
+};
 
+struct Node
+{
+    apartment* apt;
+    Node* next;
 
-struct apartmentStack
+    // constructor
+    Node(apartment* aptr) : apt(aptr), next(nullptr) {}
+};
+
+struct apartmentList
 {
     int size;
-    int capacity;
-    apartment **aptArray;
-    
-    // constructor
-    apartmentStack(int maxCapacity) : size(0), capacity(maxCapacity), aptArray(new apartment*[maxCapacity])
-    {
-        for (int i = 0; i < maxCapacity; i++)
-        {
-            aptArray[i] = nullptr;
-        }
-    } // apartmentStack(int maxCapacity) : size(0), capacity(maxCapacity), aptArray(new apartment*[maxCapacity])
+    Node* head;
 
-    
-    void append(const apartment *apPtr)
+    // constructor
+    apartmentList() : size(0), head(nullptr) {}
+
+    void append(apartment* aptr)
     {
-        if (size < capacity)
+        Node* newNode = new Node(aptr);
+
+        if (!head)
         {
-            aptArray[size++] = new apartment(*apPtr);
+            head = newNode;
         }
         else
         {
-            cout << "Stack overflow!\n";
+            Node* temp = head;
+            while (temp->next)
+            {
+                temp = temp->next;
+            }
+
+            temp->next = newNode;
         }
-    }// void append(apartment *apPtr)
-    
-    
+
+        size++;
+    }
+
     void removeByIndex(int index)
     {
-        if (index >= 0 and index < size)
+        if (index >= 0 && index < size)
         {
-            delete aptArray[index]; // Delete memory for seacred struct
-            
-            // Move last sturct to position (if this not last)
-            if (index < size - 1)
+            if (index == 0)
             {
-                aptArray[index] = aptArray[size - 1];
+                Node* temp = head;
+                head = head->next;
+                delete temp;
             }
-            
-            --size; // Minus size stack
+            else
+            {
+                Node* temp = head;
+                for (int i = 0; i < index - 1; i++)
+                {
+                    temp = temp->next;
+                }
+
+                Node* toRemove = temp->next;
+                temp->next = toRemove->next;
+                delete toRemove;
+            }
+
+            size--;
         }
         else
         {
             cout << "Invalid index.\n";
         }
-    }// void remove(int index)
-    
+    }
+
     // Function to search for an apartment by index
     apartment* searchByIndex(int index) const
     {
         if (index >= 0 and index < size)
         {
-            return aptArray[index];
+            Node* temp = head;
+            for (int i = 0; i < index; i++)
+            {
+                temp = temp->next;
+            }
+            return temp->apt;
         }
         else
         {
             cout << "Invalid index.\n";
+            return nullptr;
         }
-        return nullptr;
-    }// apartment* searchByIndex(int index) const
+    }
 
-    
     void editByIndex(int index, const string& newOwner = "", int newNumber = -1)
     {
         if (index >= 0 and index < size)
         {
             if (!newOwner.empty())
             {
-                aptArray[index]->owner = newOwner;
+                head = head->next;
+                apartment* newApt = new apartment(newOwner, newNumber);
+                append(newApt);
             }
             if (newNumber != -1)
             {
-                aptArray[index]->number = newNumber;
+                head->apt->number = newNumber;
             }
         }
         else
         {
             cout << "Invalid index.\n";
         }
-    }// void editByIndex(int index, const string& newOwner = "", int newNumber = -1)
-    
-    
-    // Overloaded function to edit an apartment by index with a single parameter
-    void editByIndex(int index, int newNumber)
-    {
-        editByIndex(index, "", newNumber);
-    }// void editByIndex(int index, int newNumber)
-
-    
-    // Function to split the stack into multiple identical stacks
-    apartmentStack* split() const
-    {
-        int newCapacity = capacity / 2;
-        apartmentStack* newStack = new apartmentStack(newCapacity);
-
-        // Copy elements from the original stack to the new stack
-        for (int i = 0; i < size; ++i)
-        {
-            newStack->append(aptArray[i]);
-        }
-
-        return newStack;
     }
 
-    
-    // Function to split the stack into two identical stacks
-    pair<apartmentStack*, apartmentStack*> splitToTwo() const
+    // Function to split the list into multiple lists
+    pair<apartmentList*, apartmentList*> splitToTwo() const
     {
-        int newCapacity = capacity / 2;
-        apartmentStack* newStack1 = new apartmentStack(newCapacity);
-        apartmentStack* newStack2 = new apartmentStack(newCapacity);
+        int newCapacity = size / 2;
+        apartmentList* newStack1 = new apartmentList();
+        apartmentList* newStack2 = new apartmentList();
 
-        // Copy elements from the original stack to the new stacks
+        Node* temp = head;
         for (int i = 0; i < size; ++i)
         {
             if (i < newCapacity)
             {
-                newStack1->append(aptArray[i]);
+                newStack1->append(temp->apt);
             }
             else
             {
-                newStack2->append(aptArray[i]);
+                newStack2->append(temp->apt);
             }
+            temp = temp->next;
         }
 
         return make_pair(newStack1, newStack2);
-    }// pair<apartmentStack*, apartmentStack*> split() const
-    
-    
-    ~apartmentStack()
+    }
+
+    // Function to split the list into two or three lists based on parity
+    pair<apartmentList*, pair<apartmentList*, apartmentList*>> split() const
     {
-        for (int i = 0; i < size; i++)
+        int newCapacity = (size % 2 == 0) ? size / 2 : (size / 2) + 1;
+        apartmentList* newStack1 = new apartmentList();
+        apartmentList* newStack2 = new apartmentList();
+        apartmentList* newStack3 = (size % 2 == 0) ? nullptr : new apartmentList();
+
+        Node* temp = head;
+        for (int i = 0; i < size; ++i)
         {
-            delete aptArray[i]; // clear memory for [i] struct
+            if (i < newCapacity)
+            {
+                newStack1->append(temp->apt);
+            }
+            else if (i >= newCapacity && i < 2 * newCapacity && temp)
+            {
+                newStack2->append(temp->apt);
+            }
+            else if (newStack3 && temp)
+            {
+                newStack3->append(temp->apt);
+            }
+            if (temp)
+            {
+                temp = temp->next;
+            }
         }
-        delete[] aptArray; // clear array prt
-    }// ~apartmentStack()
-    
-}; // struct apartmentStack
-    
+
+        return make_pair(newStack1, make_pair(newStack2, newStack3));
+    }
+
+    ~apartmentList()
+    {
+        Node* temp = head;
+        while (temp)
+        {
+            Node* nextNode = temp->next;
+
+            delete temp;
+            temp = nextNode;
+        }
+        head = nullptr;
+    }
+
+}; // struct apartmentList
 
 // MARK: - Main
 
 int main()
 {
-    //MARK: -  Create a stack with a capacity of 4
-    apartmentStack myStack(8);
+    //MARK: -  Create a list
+    apartmentList myList;
 
-    //MARK: -  Append apartments to the stack
-    myStack.append(new apartment("John Bringo", 101));
-    myStack.append(new apartment("Jane Does", 202));
-    myStack.append(new apartment("Bob Smith", 303));
-    myStack.append(new apartment("Alice Johnson", 404));
-    myStack.append(new apartment("Charlie Brown", 505));
-    myStack.append(new apartment("Eva Green", 606));
-    myStack.append(new apartment("Frank White", 707));
-    myStack.append(new apartment("Grace Miller", 808));
+    //MARK: -  Append apartments to the list
+    myList.append(new apartment("John Bringo", 101));
+    myList.append(new apartment("Jane Does", 202));
+    myList.append(new apartment("Bob Smith", 303));
+    myList.append(new apartment("Alice Johnson", 404));
+    myList.append(new apartment("Charlie Brown", 505));
+    myList.append(new apartment("Eva Green", 606));
+    myList.append(new apartment("Frank White", 707));
+    myList.append(new apartment("Grace Miller", 808));
 
-    // Print elements in the original stack
-    cout << "Original Stack:\n";
-    for (int i = 0; i < myStack.size; i++)
+    // Print elements in the original list
+    cout << "Original List:\n";
+    Node* temp = myList.head;
+    while (temp)
     {
-        cout << "Owner: " << myStack.aptArray[i]->owner << ", Number: " << myStack.aptArray[i]->number << endl;
+        cout << "Owner: " << temp->apt->owner << ", Number: " << temp->apt->number << endl;
+        temp = temp->next;
     }
 
     //MARK: -  Search for an apartment by index and print details
     int searchIndex = 2;
     cout << "\nSearching for apartment at index " << searchIndex << ":\n";
-    
-    apartment* searchedApartment = myStack.searchByIndex(searchIndex);
-    
+
+    apartment* searchedApartment = myList.searchByIndex(searchIndex);
+
     if (searchedApartment != nullptr)
     {
         cout << "Owner: " << searchedApartment->owner << ", Number: " << searchedApartment->number << endl;
     }
-    
+
     //MARK: - Edit an apartment by index
     int editIndex = 1;
     cout << "\nEditing apartment at index " << editIndex << ":\n";
-    
-    myStack.editByIndex(editIndex, "New Owner", 999);
-    
+
+    myList.editByIndex(editIndex, "New Owner", 999);
+
     cout << "Updated apartment details:\n";
-    
-    for (int i = 0; i < myStack.size; ++i)
+
+    temp = myList.head;
+    while (temp)
     {
-        cout << "Owner: " << myStack.aptArray[i]->owner << ", Number: " << myStack.aptArray[i]->number << endl;
+        cout << "Owner: " << temp->apt->owner << ", Number: " << temp->apt->number << endl;
+        temp = temp->next;
     }
-    
+
     //MARK: -  Remove an apartment by index
     int removeIndex = 0;
     cout << "\nRemoving apartment at index " << removeIndex << ":\n";
-    
-    myStack.removeByIndex(removeIndex);
-    
-    cout << "Updated stack after removal:\n";
-    
-    for (int i = 0; i < myStack.size; ++i)
+
+    myList.removeByIndex(removeIndex);
+
+    cout << "Updated list after removal:\n";
+
+    temp = myList.head;
+    while (temp)
     {
-        cout << "Owner: " << myStack.aptArray[i]->owner << ", Number: " << myStack.aptArray[i]->number << endl;
+        cout << "Owner: " << temp->apt->owner << ", Number: " << temp->apt->number << endl;
+        temp = temp->next;
     }
 
-    //MARK: -  Split the stack into two identical stacks
-    auto [newStack1, newStack2] = myStack.splitToTwo();
+    //MARK: -  Split the list into two or three lists based on parity
+    auto [newList1, newLists23] = myList.split();
 
-    //MARK: -  Print elements in the new stacks
-    cout << "\nNew Stack 1:\n";
-    for (int i = 0; i < newStack1->size; ++i)
+    //MARK: -  Print elements in the new lists
+    cout << "\nNew List 1:\n";
+    temp = newList1->head;
+    while (temp)
     {
-        cout << "Owner: " << newStack1->aptArray[i]->owner << ", Number: " << newStack1->aptArray[i]->number << endl;
+        cout << "Owner: " << temp->apt->owner << ", Number: " << temp->apt->number << endl;
+        temp = temp->next;
     }
 
-    cout << "\nNew Stack 2:\n";
-    for (int i = 0; i < newStack2->size; ++i)
+    if (newLists23.first)
     {
-        cout << "Owner: " << newStack2->aptArray[i]->owner << ", Number: " << newStack2->aptArray[i]->number << endl;
+        cout << "\nNew List 2:\n";
+        temp = newLists23.first->head;
+        while (temp)
+        {
+            cout << "Owner: " << temp->apt->owner << ", Number: " << temp->apt->number << endl;
+            temp = temp->next;
+        }
     }
 
-    //MARK: - Finnaly clean up memory, uha-ha-ha i need break all memory!
-    delete newStack1;
-    delete newStack2;
+    if (newLists23.second)
+    {
+        cout << "\nNew List 3:\n";
+        temp = newLists23.second->head;
+        while (temp)
+        {
+            cout << "Owner: " << temp->apt->owner << ", Number: " << temp->apt->number << endl;
+            temp = temp->next;
+        }
+    }
+
+    //MARK: - Finally clean up memory
+    delete newList1;
+    delete newLists23.first;
+    delete newLists23.second;
 
     return 0;
-}// int main() {}
+}
