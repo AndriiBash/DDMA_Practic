@@ -67,7 +67,7 @@ void writeToFile(const string& content, const string& filePath)
     {
         cerr << "Error opening the file for writing." << endl;
     }
-}
+}// void writeToFile(const string& content, const string& filePath)
 
 string readFromFile(const string& filePath)
 {
