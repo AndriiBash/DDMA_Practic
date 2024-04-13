@@ -27,8 +27,12 @@ public:
     void setWeight(double newWeight) { weight = newWeight; }
     
     double getWeight() const { return weight; }
+    string getFullName() const { return fullName; }
+    bool getHasSiblings() const { return hasSiblings; }
+    int getDayOfBirth() const { return dayOfBirth; }
+    int getMonthOfBirth() const { return monthOfBirth; }
+    int getYearOfBirth() const { return yearOfBirth; }
 
-    // print status weight person
     void printStatus() const
     {
         if (weight < 60)
@@ -45,7 +49,6 @@ public:
         }
     }
 
-    // print info
     void printInfo() const
     {
         cout << "Full Name : " << fullName << endl;
@@ -106,3 +109,5 @@ int main()
 
     return 0;
 }
+
+
