@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Виробники xmlns="http://example.com/manufacturers" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://example.com/manufacturers manufacturers.xsd">
+    <Виробник>
+        <Назва>Фармацевтична компанія ABC</Назва>
+        <Адреса>вул. Лікарська, 5, Київ</Адреса>
+        <КонтактнийТелефон>+380444555666</КонтактнийТелефон>
+        <ВебСайт>http://www.abcpharma.com</ВебСайт>
+    </Виробник>
+    <Виробник>
+        <Назва>Фармацевтична компанія XYZ</Назва>
+        <Адреса>вул. Наукова, 7, Харків</Адреса>
+        <КонтактнийТелефон>+380577788899</КонтактнийТелефон>
+        <ВебСайт>http://www.xyzpharma.com</ВебСайт>
+    </Виробник>
+</Виробники>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://example.com/categories"
+           targetNamespace="http://example.com/categories"
+           elementFormDefault="qualified">
+
+    <!-- Визначення кореневого елемента Категорії -->
+    <xs:element name="Категорії">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Визначення елемента Категорія як повторювального -->
+                <xs:element name="Категорія" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!-- Визначення елемента Назва -->
+                            <xs:element name="Назва" type="xs:string"/>
+                            <!-- Визначення елемента Опис -->
+                            <xs:element name="Опис" type="xs:string"/>
+                        </xs:sequence>
+                        <!-- Додаткові атрибути для Категорія -->
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
