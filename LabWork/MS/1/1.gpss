@@ -1,0 +1,13 @@
+*1-й сегмент
+GENERATE  18,5; 
+QUEUE         WORKERS
+SEIZE            PANTRY
+DEPART       WORKERS
+ADVANCE   16,7
+RELEASE     PANTRY
+TERMINATE
+
+*2-й сегмент-таймер
+GENERATE  3360; 7 робочих змін
+TERMINATE 1
+START 1
