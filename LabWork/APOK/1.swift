@@ -57,7 +57,8 @@ struct ContentView: View
         let nc = 750.0
         let kd1 = 0.99
         let kd2 = 0.97
-        let u = 1.4
+        let u = 2.5
+
         
         let P_vyhod = trimToThreeDecimalPlaces(T * n / 9550)
         let P_potr = trimToThreeDecimalPlaces(P_vyhod / 0.95)
