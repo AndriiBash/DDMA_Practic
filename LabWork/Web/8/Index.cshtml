@@ -1,0 +1,27 @@
+@model Form
+@{
+    ViewData["Title"] = "Сторінка з кнопкою";
+}
+
+<h1>Сторінка з кнопкою</h1>
+
+@using (Html.BeginForm("SubmitForm", "Form", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.REQUEST_METHOD)
+    @Html.HiddenFor(model => model.REMOTE_ADDR)
+
+    
+
+    @Html.RadioButtonFor(model => model.REQUEST_METHOD, "GET")
+   
+   @Html.RadioButtonFor(model => model.REQUEST_METHOD, "POST") 
+<input type="submit" value="Submit" />
+}
+
+@if (Model != null && !string.IsNullOrEmpty(Model.REMOTE_USER))
+{
+    <h2>Результати відправки форми:</h2>
+    <p>REMOTE_USER: @Model.REMOTE_USER</p>
+    <p>REQUEST_METHOD: @Model.REQUEST_METHOD</p>
+    <p>REMOTE_ADDR: @Model.REMOTE_ADDR</p>
+}

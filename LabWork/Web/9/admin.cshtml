@@ -1,0 +1,49 @@
+@model List<Reg>
+@{
+    ViewData["Title"] = "Lab9";
+}
+<p>Admin console</p>
+
+<table border="1">
+    <tr>
+        <th>Ім'я користувача</th>
+        <th>Пароль</th>
+        <th>Роль</th>
+        <th>Дії</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Username</td>
+            <td>@user.Password</td>
+            <td>@user.Role</td>
+            <td>
+                <form method="post" asp-action="DeleteUser" asp-controller="Reg">
+                    <input type="hidden" name="usernameToDelete" value="@user.Username" />
+                    <button type="submit">Видалити</button>
+                </form>
+
+                <form method="post" asp-action="EditUser" asp-controller="Reg">
+                    <input type="hidden" name="oldUsername" value="@user.Username" />
+                    <input type="text" name="newUsername" placeholder="Нове ім'я користувача" required />
+                    <input type="text" name="newPassword" placeholder="Новий пароль" required />
+                    <input type="text" name="newRole" placeholder="Нова роль" required />
+                    <button type="submit">Редагувати</button>
+                </form>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <form method="post" asp-action="AddUser" asp-controller="Reg">
+                <input type="text" name="newUsername" placeholder="Нове ім'я користувача" required />
+                <input type="text" name="newPassword" placeholder="Новий пароль" required />
+                <input type="text" name="newRole" placeholder="Нова роль" required />
+                <button type="submit">Додати</button>
+            </form>
+        </td>
+    </tr>
+</table>

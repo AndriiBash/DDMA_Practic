@@ -1,0 +1,16 @@
+@{
+    ViewData["Title"] = "Lab9";
+}
+<p>Lab 9 page</p>
+
+<form method="post" asp-controller="Reg" asp-action="AuthForm">
+    <div>
+        <label for="username">Ім'я користувача:</label>
+        <input type="text" name="username" id="username" />
+    </div>
+    <div>
+        <label for="password">Пароль:</label>
+        <input type="password" name="password" id="password" />
+    </div>
+    <input type="submit" value="Увійти" />
+</form>
