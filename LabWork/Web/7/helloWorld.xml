@@ -3,9 +3,9 @@
 
     <name>COM_HELLOWORLD</name>
     <!-- The following elements are optional and free of formatting constraints -->
-    <creationDate>Nov 2023 </creationDate>
-    <author>lyashov Olexandr</author>
-    <authorEmail>lyashov.o@example.org</authorEmail>
+    <creationDate>Jovten 2024 </creationDate>
+    <author>Andrii Izbash</author>
+    <authorEmail>example@example.org</authorEmail>
     <authorUrl>http://www.example.org</authorUrl>
     <copyright>Copyright Info</copyright>
     <license>License Info</license>

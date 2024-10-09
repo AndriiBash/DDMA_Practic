@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="3.8.2" client="site" method="upgrade">
     <name>HelloWorld</name>
-    <author>Lyashov Olexandr</author>
+    <author>Izbash Andrii</author>
     <version>1.0</version>
     <description>My module Lab5 Joomla Extension</description>
     <files>

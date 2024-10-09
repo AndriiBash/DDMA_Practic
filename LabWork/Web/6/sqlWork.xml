@@ -2,8 +2,8 @@
 <extension type="component" version="3.0" method="upgrade">
     <name>com_goodcook</name>
     <description>COM_GOODCOOK_XML_DESCRIPTION</description>
-    <creationDate>October 2023</creationDate>
-    <author>Lyashov Olexandr</author>
+    <creationDate>Jovten' 2024</creationDate>
+    <author>Izbash Andrii</author>
     <license>GNU General Public License version 2 or later</license>
     <version>1.0.0</version>
    
