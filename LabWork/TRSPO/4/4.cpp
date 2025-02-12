@@ -3,8 +3,11 @@
 #include <vector>       // Для використання контейнера vector
 #include <cmath>        // Для математичних функцій (sin, cos)
 #include <limits>       // Для отримання граничних значень типів даних
+#include <mutex>
 
 using namespace std;
+
+mutex results_mutex;    // mutex
 
 // Структура для збереження результатів
 struct Result {
@@ -61,7 +64,10 @@ void find_max(int thread_id,               // Ідентифікатор пот�
     cout << thread_answer_string;
 
     // Зберігання результату потоку в загальний масив результатів
-    results.push_back({local_max, local_best_x, local_best_y});
+    {
+        lock_guard<mutex> lock(results_mutex);
+        results.push_back({local_max, local_best_x, local_best_y});
+    }
 }
 
 int main()
